@@ -3,20 +3,15 @@ public class Medlem {
     private String birthdate;
     private String fullName;
     private String gender;
-    private String idNumber;
+    private int idNumber;
     private String email;
     private int phoneNumber;
     private String adress;
-    private boolean isActiveMembership;
-    private boolean isInactiveMembership;
-    private boolean isCompetitionSwimmer;
-    private boolean isExerciser;
-    private boolean isJunior;
-    private boolean isSenior;
+    private String isCompetitionSwimmer;
 
 
 
-    public Medlem(String birthdate, String fullName, String gender, String idNumber, String email, int phoneNumber, String adress, boolean activeMembership, boolean inactiveMembership, boolean seniorSwimmer, boolean competitionSwimmer, boolean isJunior, boolean isExerciser) {
+    public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer) {
         this.birthdate = birthdate;
         this.fullName = fullName;
         this.gender = gender;
@@ -24,15 +19,8 @@ public class Medlem {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.adress = adress;
-        this.isActiveMembership = activeMembership;
-        this.isInactiveMembership = inactiveMembership;
-        this.isSenior = seniorSwimmer;
-        this.isCompetitionSwimmer = competitionSwimmer;
-        this.isJunior = isJunior;
-        this.isExerciser = isExerciser;
+       this.isCompetitionSwimmer = isCompetitionSwimmer;
     }
-
-
 
 
     public void setBirthdate(String birthdate) {
@@ -47,7 +35,7 @@ public class Medlem {
         this.gender = gender;
     }
 
-    public void setIdNumber(String idNumber) {
+    public void setIdNumber(int idNumber) {
         this.idNumber = idNumber;
     }
 
@@ -62,31 +50,9 @@ public class Medlem {
     public void setAdress(String adress) {
         this.adress = adress;
     }
-
-    public void setActiveMembership(boolean isActiveMembership) {
-        this.isActiveMembership = isActiveMembership;
-    }
-
-    public void setInactiveMembership(boolean isInactiveMembership) {
-        this.isInactiveMembership = isInactiveMembership;
-    }
-    public void setSenior(boolean isSenior) {
-        this.isSenior = isSenior;
-    }
-
-    public void setCompetitionSwimmer(boolean isCompetitionSwimmer) {
+    public void setCompetitionSwimmer(String isCompetitionSwimmer) {
         this.isCompetitionSwimmer = isCompetitionSwimmer;
     }
-
-    public void setJunior(boolean isJunior) {
-        this.isJunior = isJunior;
-    }
-
-    public void setExerciser(boolean isExerciser) {
-        this.isExerciser = isExerciser;
-    }
-
-
 
 
 
@@ -103,7 +69,7 @@ public class Medlem {
         return gender;
     }
 
-    public String getIdNumber() {
+    public int getIdNumber() {
         return idNumber;
     }
 
@@ -119,30 +85,9 @@ public class Medlem {
         return adress;
     }
 
-    public boolean getActiveMembership() {
-        return isActiveMembership;
-    }
-
-    public boolean getInactiveMembership() {
-        return isInactiveMembership;
-    }
-
-    public boolean getSeniorSwimmer() {
-        return isSenior;
-    }
-
-    public boolean getCompetitionSwimmer() {
+    public String getCompetitionSwimmer() {
         return isCompetitionSwimmer;
     }
-
-    public boolean isJunior() {
-        return isJunior;
-    }
-
-    public boolean isExerciser() {
-        return isExerciser;
-    }
-
 
 
 }

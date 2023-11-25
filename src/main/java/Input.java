@@ -36,7 +36,7 @@ public class Input {
         }
     }
 
-    public boolean nextLine() {
+    public String nextLine() {
         return nextLine();
     }
 }

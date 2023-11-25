@@ -2,6 +2,7 @@ import javax.sound.sampled.FloatControl;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -11,6 +12,7 @@ public class UserInterface {
         Scanner scanner = new Scanner(System.in);
         Input input = new Input();
         DataBase dataBase = new DataBase();
+        FileHandler fileHandler = new FileHandler();
 
         boolean keepRunning = true;
 
@@ -36,10 +38,10 @@ public class UserInterface {
                     System.out.println("_________________");
 
                     boolean validDate = false;
+                    System.out.println("Fødselsdato (dd-MM-yyyy)");
+                    String birthday = input.inputString();
                     while (!validDate) {
                         try {
-                            System.out.println("Fødselsdato (dd-MM-yyyy)");
-                            String birthday = input.inputString();
                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
                             LocalDate birthdate = LocalDate.parse(birthday, formatter);
@@ -89,31 +91,35 @@ public class UserInterface {
                     String adress = input.inputString();
                     System.out.println("_________________");
 
-                    System.out.println();
+
 
 
                     System.out.println("Er medlemmet konkurrencesvømmer (ja/nej)?");
-                    String swimmerType = String.valueOf(input.nextLine());
+                    String CompetitionSwimmer = input.inputString();
 
-                    if (swimmerType.equals("ja")) {
+                    if (CompetitionSwimmer.equals("ja")) {
                         System.out.println("Medlemmet er konkurrencesvømmer");
-                    } else if (swimmerType.equals("nej")) {
+                    } else if (CompetitionSwimmer.equals("nej")) {
                         System.out.println("Medlemmet er motionist ");
                     } else {
                         System.out.println("Ugyldigt svar. Indtast enten 'ja' eller 'nej'.");
                     }
                     System.out.println("_________________");
+                    System.out.println();
+
 
 
                     System.out.println("Medlemmet er blevet registreret");
-                    dataBase.tilføjMedlemmer(validDate,fullName, gender, idNumber, email, phoneNumber, adress, swimmerType);
-
+                    dataBase.tilføjMedlemmer(birthday,fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
 
                     break;
 
                 case 2:
-                    System.out.println("Her er medlemmerne i svømmekluben delfin: ");
-                    dataBase.printMedlemmer();
+                    System.out.println("Her er medlemmerne i delfinsvømmeklubben: ");
+                    System.out.println(dataBase.getMedlemsArrayList());
+                    System.out.println("_________________");
+                    System.out.println();
+                    break;
 
 
                 case 3:

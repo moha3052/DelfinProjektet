@@ -11,10 +11,7 @@ public class FileHandler {
                 output.println(medlem.getIdNumber() + medlem.getFullName() +
                         ";" + medlem.getBirthdate() + ";" + medlem.getGender() + ";" +
                         ";" + medlem.getEmail() + ";" + medlem.getPhoneNumber() +
-                        ";" + medlem.getAdress() + ";" + medlem.getActiveMembership() +
-                        ";" + medlem.getInactiveMembership() + ";" + medlem.isJunior() +
-                        ";" + medlem.getSeniorSwimmer() + ";" + medlem.isExerciser() +
-                        ";" + medlem.getCompetitionSwimmer());
+                        ";" + medlem.getAdress() + ";" + medlem.getCompetitionSwimmer());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
