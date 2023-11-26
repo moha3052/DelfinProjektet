@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class DataBase {
 
-    private File f = new File("Medlem.csv");
+    private File f = new File("medlemmer.csv");
 
 
 
