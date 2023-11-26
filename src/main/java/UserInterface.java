@@ -19,8 +19,9 @@ public class UserInterface {
         boolean keepRunning = true;
 
         while (keepRunning) {
-
+            System.out.println();
             System.out.println("Velkommen til Svømmeklubben Delfinen");
+            System.out.println("Vælge imellem disse personer: ");
             System.out.println();
             System.out.println("1. Formand");
             System.out.println("2. Kassere");
@@ -44,6 +45,7 @@ public class UserInterface {
                         switch (FormandChoice) {
 
                             case 1:
+                                System.out.println();
                                 System.out.println("Fulde navn");
                                 String fullName = input.inputString();
                                 System.out.println("_________________");
@@ -95,7 +97,6 @@ public class UserInterface {
 
                                 System.out.println("Mobilnummer");
                                 int phoneNumber = input.inputInt();
-                                System.out.println("+45" + " " + phoneNumber);
                                 System.out.println("_________________");
 
                                 System.out.println("Adresse");
@@ -115,14 +116,16 @@ public class UserInterface {
                                 }
                                 System.out.println("_________________");
                                 System.out.println(fullName + " " + "er blevet registreret i klubben");
+                                System.out.println();
                                 fileHandler.gemOplysningerICSV(fullName, birthday, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
                                 break;
 
                             case 2:
                                 System.out.println("Her er medlemmerne i delfinsvømmeklubben: ");
-                                System.out.println(dataBase.getMedlemsArrayList());
+                                System.out.println();
                                 System.out.println("_________________");
                                 System.out.println();
+                                // Virker ikke helt
                                 break;
 
                             case 3:
@@ -130,23 +133,50 @@ public class UserInterface {
                                 break;
                         }
                     }
+
+
                 case 2:
-                    System.out.println("Kassere: ");
-                    System.out.println("_________________");
-                    System.out.println();
-                    break;
+                    boolean KassereRunning = true;
+                    while (KassereRunning) {
+                        System.out.println("Kassere: ");
+                        System.out.println("_________________");
+                        System.out.println("3. Tilbage til menu");
+                        System.out.println();
+
+                        int KassereChoise = scanner.nextInt();
+                        switch (KassereChoise) {
+                            case 3:
+                                KassereRunning = false;
+
+                        }
+                    }
+                break;
+
 
                 case 3:
-                    System.out.println("Træner: ");
-                    System.out.println("_________________");
-                    System.out.println();
-                    break;
+                    boolean TrænerRuning = true;
+                    while (TrænerRuning) {
+                        System.out.println("Træner: ");
+                        System.out.println("_________________");
+                        System.out.println("3. Tilbage til menu");
+                        System.out.println();
+
+                        int TrænerChoise = scanner.nextInt();
+                        switch (TrænerChoise) {
+                            case 3:
+                                TrænerRuning = false;
+                                break;
+                        }
+                    }
+                break;
+
 
                 case 4:
                     keepRunning = false;
                     System.out.println("Programmet er afsluttet");
                     break;
             }
+
         }
     }
 }

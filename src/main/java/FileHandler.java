@@ -11,7 +11,7 @@ public class FileHandler {
     public void gemOplysningerICSV(String fullName, String birthday, String gender, int idNumber, String email, int phoneNumber, String adress, String CompetitionSwimmer) {
         String csvFile = "medlemmer.csv";
         try {
-            FileWriter fileWriter = new FileWriter(csvFile, true); // 'true' for at tilføje til filen i stedet for at overskrive
+            FileWriter fileWriter = new FileWriter(csvFile, true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
 

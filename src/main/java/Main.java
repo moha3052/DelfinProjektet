@@ -4,7 +4,4 @@ public class Main {
         ui.StartProgram();
 
     }
-
-
-
 }
