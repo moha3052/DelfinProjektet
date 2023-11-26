@@ -36,7 +36,5 @@ public class Input {
         }
     }
 
-    public String nextLine() {
-        return nextLine();
-    }
+
 }
