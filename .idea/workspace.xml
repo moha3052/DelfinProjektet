@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="Kan gemme i csv fil">
+    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="Kan gemme medlemsopslyninger i csv filen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Input.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Medlem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medlem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
+    </list>
+    <list id="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" name="Changes by xuanloclam" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
+    </list>
+    <list id="0409ed44-661a-4c55-bebf-ae112c13bbd3" name="Changes by younesbenaddi" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Medlem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medlem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
     </list>
@@ -26,6 +34,50 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/Medlem.java">
+      <ranges>
+        <range start1="0" end1="0" start2="0" end2="2" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="91" end1="93" start2="93" end2="105" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/UserInterface.java">
+      <ranges>
+        <range start1="0" end1="2" start2="0" end2="0" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="5" end1="6" start2="3" end2="3" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="11" end1="13" start2="8" end2="8" changelist="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" />
+        <range start1="14" end1="15" start2="9" end2="9" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="16" end1="18" start2="10" end2="10" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="45" end1="46" start2="37" end2="37" changelist="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" />
+        <range start1="49" end1="50" start2="40" end2="42" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="54" end1="55" start2="46" end2="47" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="79" end1="80" start2="71" end2="72" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="90" end1="91" start2="82" end2="83" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="94" end1="95" start2="86" end2="87" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="98" end1="99" start2="90" end2="91" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="102" end1="103" start2="94" end2="95" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="107" end1="108" start2="99" end2="100" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="117" end1="118" start2="109" end2="110" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="119" end1="120" start2="111" end2="112" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="127" end1="128" start2="119" end2="120" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="136" end1="137" start2="128" end2="128" changelist="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" />
+        <range start1="149" end1="150" start2="140" end2="140" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="167" end1="168" start2="157" end2="157" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="172" end1="173" start2="161" end2="161" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/FileHandler.java">
+      <ranges>
+        <range start1="0" end1="1" start2="0" end2="1" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="2" end1="5" start2="2" end2="2" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="7" end1="7" start2="4" end2="5" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="29" end1="30" start2="27" end2="27" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="31" end1="31" start2="28" end2="44" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="32" end1="32" start2="45" end2="52" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="33" end1="34" start2="53" end2="57" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -64,7 +116,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700312493877</updated>
       <workItem from="1700312494921" duration="43434000" />
-      <workItem from="1701027454536" duration="9298000" />
+      <workItem from="1701027454536" duration="16944000" />
     </task>
     <task id="LOCAL-00001" summary="nye">
       <option name="closed" value="true" />
@@ -98,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701032147686</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Kan gemme medlemsopslyninger i csv filen">
+      <option name="closed" value="true" />
+      <created>1701036800278</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701036800278</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +178,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="nye" />
     <MESSAGE value="Kan gemme i csv fil" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kan gemme i csv fil" />
+    <MESSAGE value="Kan gemme medlemsopslyninger i csv filen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kan gemme medlemsopslyninger i csv filen" />
   </component>
 </project>
