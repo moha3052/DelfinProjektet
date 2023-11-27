@@ -1,9 +1,6 @@
-import javax.sound.sampled.Control;
-import javax.sound.sampled.FloatControl;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -12,10 +9,7 @@ public class UserInterface {
 
 
         Scanner scanner = new Scanner(System.in);
-        Input input = new Input();
         DataBase dataBase = new DataBase();
-        FileHandler fileHandler = new FileHandler();
-
         boolean keepRunning = true;
 
         while (keepRunning) {
@@ -47,12 +41,13 @@ public class UserInterface {
                             case 1:
                                 System.out.println();
                                 System.out.println("Fulde navn");
-                                String fullName = input.inputString();
+                                String fullName = scanner.nextLine();
+                                scanner.nextLine();
                                 System.out.println("_________________");
 
                                 boolean validDate = false;
                                 System.out.println("Fødselsdato (dd-MM-yyyy)");
-                                String birthday = input.inputString();
+                                String birthday = scanner.nextLine();
                                 while (!validDate) {
                                     try {
                                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -77,7 +72,7 @@ public class UserInterface {
                                 while (!gender.equalsIgnoreCase("Dreng") && !gender.equalsIgnoreCase("Mand") &&
                                         !gender.equalsIgnoreCase("Pige") && !gender.equalsIgnoreCase("Kvinde")) {
                                     System.out.println("Køn (Dreng/Mand/Pige/Kvinde)");
-                                    gender = input.inputString();
+                                    gender = scanner.nextLine();
 
                                     if (!gender.equalsIgnoreCase("Dreng") && !gender.equalsIgnoreCase("Mand") &&
                                             !gender.equalsIgnoreCase("Pige") && !gender.equalsIgnoreCase("Kvinde")) {
@@ -88,24 +83,24 @@ public class UserInterface {
 
 
                                 System.out.println("E-mail");
-                                String email = input.inputString();
+                                String email = scanner.nextLine();
                                 System.out.println("_________________");
 
                                 System.out.println("ID Nummer");
-                                int idNumber = input.inputInt();
+                                int idNumber = scanner.nextInt();
                                 System.out.println("_________________");
 
                                 System.out.println("Mobilnummer");
-                                int phoneNumber = input.inputInt();
+                                int phoneNumber = scanner.nextInt();
                                 System.out.println("_________________");
 
                                 System.out.println("Adresse");
-                                String adress = input.inputString();
+                                String adress = scanner.nextLine();
                                 System.out.println("_________________");
 
 
                                 System.out.println("Er medlemmet konkurrencesvømmer (ja/nej)?");
-                                String CompetitionSwimmer = input.inputString();
+                                String CompetitionSwimmer = scanner.nextLine();
 
                                 if (CompetitionSwimmer.equals("ja")) {
 
@@ -115,9 +110,9 @@ public class UserInterface {
                                     System.out.println("Ugyldigt svar. Indtast enten 'ja' eller 'nej'.");
                                 }
                                 System.out.println("_________________");
-                                System.out.println(fullName + " " + "er blevet registreret i klubben");
+                                System.out.println(birthday + " " + "er blevet registreret i klubben");
                                 System.out.println();
-                                fileHandler.gemOplysningerICSV(fullName, birthday, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
+                                dataBase.gemOplysningerICSV(fullName, birthday, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
                                 break;
 
                             case 2:
@@ -125,7 +120,7 @@ public class UserInterface {
                                 System.out.println();
                                 System.out.println("_________________");
                                 System.out.println();
-                                // Virker ikke helt
+                                dataBase.printMedlemsList();
                                 break;
 
                             case 3:
@@ -147,7 +142,6 @@ public class UserInterface {
                         switch (KassereChoise) {
                             case 3:
                                 KassereRunning = false;
-
                         }
                     }
                 break;
@@ -165,11 +159,9 @@ public class UserInterface {
                         switch (TrænerChoise) {
                             case 3:
                                 TrænerRuning = false;
-                                break;
                         }
                     }
                 break;
-
 
                 case 4:
                     keepRunning = false;

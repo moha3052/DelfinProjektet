@@ -1,27 +1,36 @@
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DataBase {
 
-    private File f = new File("medlemmer.csv");
+    private ArrayList<Medlem> medlemsListe;
+    private FileHandler fileHandler;
 
 
+    private File file = new File("medlemmer.csv");
 
-    public ArrayList<Medlem> getMedlemsArrayList(){
-        return MedlemsArrayList;
+    public void loadMedlemmerFraCSV(){
+        this.medlemsListe = fileHandler.loadMedlemmer();
     }
 
-    private ArrayList<Medlem> MedlemsArrayList;
+    public void printMedlemsList(){
+        for (Medlem medlem :  medlemsListe) {
+            System.out.println(medlem.toString());
 
-    List<Medlem> medlemsliste = new ArrayList<>();
+        }
+    }
+
+    public ArrayList<Medlem> getMedlemsListe(){
+        return medlemsListe;
+    }
 
     public DataBase(){
-        MedlemsArrayList = new ArrayList<>();
+        this.fileHandler = new FileHandler();
+        loadMedlemmerFraCSV();
     }
 
-    public void tilføjMedlemmer(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String CompetitionSwimmer){
-      MedlemsArrayList.add(new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress,CompetitionSwimmer));
+    public void gemOplysningerICSV(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String CompetitionSwimmer){
+        fileHandler.gemOplysningerICSV(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
     }
 
 }

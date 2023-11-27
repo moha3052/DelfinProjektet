@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Medlem {
 
     private String birthdate;
@@ -89,6 +91,16 @@ public class Medlem {
         return isCompetitionSwimmer;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Medlem: " +
+                " FullName = " + fullName + " " +
+                " Birthdate = " +  birthdate + " " +
+                " Gender = " + gender + " " +
+                " IdNumber = " + idNumber + " " +
+                " Email = " + email + " " +
+                " +45 = " + phoneNumber + " " +
+                " Adress = " + adress + " " +
+                " IsCompetitionSwimmer = " + isCompetitionSwimmer + '\n';
+    }
 }
