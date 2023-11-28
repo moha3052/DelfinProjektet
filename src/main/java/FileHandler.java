@@ -26,7 +26,7 @@ public class FileHandler {
         }
     }
 
-    public ArrayList<Medlem> loadMedlemmer(){
+    public ArrayList<Medlem> loadMedlem(){
         ArrayList<Medlem> visAlleMedlemmer = new ArrayList<>();
         try(Scanner scanner = new Scanner(new File("medlemmer.csv"))){
             int index = 1;
@@ -71,7 +71,7 @@ public class FileHandler {
         }
     }
 
-    }
+
 
     public ArrayList<Medlem> loadMedlemmer(){
         ArrayList<Medlem> visAlleMedlemmer = new ArrayList<>();

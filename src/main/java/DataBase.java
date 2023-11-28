@@ -32,7 +32,9 @@ public class DataBase {
     public void gemOplysningerICSV(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String CompetitionSwimmer){
         fileHandler.gemOplysningerICSV(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
     }
-
+   public void gemOplysningerICSV(Medlem medlem){
+        fileHandler.gemOplysningerICSV(medlem);
+    }
 
     public void tilføjMedlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String CompetitionSwimmer){
         Medlem medlem = new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
