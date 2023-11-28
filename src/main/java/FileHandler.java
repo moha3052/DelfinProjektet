@@ -73,5 +73,32 @@ public class FileHandler {
 
     }
 
+    public ArrayList<Medlem> loadMedlemmer(){
+        ArrayList<Medlem> visAlleMedlemmer = new ArrayList<>();
+        try(Scanner scanner = new Scanner(new File("medlemmer.csv"))){
+            int index = 1;
+            while( scanner.hasNextLine()){
+                String[] parts = scanner.nextLine().split(";");
+                String birthdate = parts[0];
+                String fullName = parts[1];
+                String gender = parts[2];
+                int idNumber = Integer.parseInt(parts[3].trim());
+                String email = parts[4];
+                int phoneNumber = Integer.parseInt(parts[5].trim());
+                String adress = parts[6];
+                String isCompetitionSwimmer = parts[7];
+                Medlem medlem = new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, isCompetitionSwimmer);
+                visAlleMedlemmer.add(medlem);
+
+                index++;
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return visAlleMedlemmer;
+    }
+
+    }
+
 
 
