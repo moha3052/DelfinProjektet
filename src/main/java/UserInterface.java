@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -13,61 +14,54 @@ public class UserInterface {
         boolean keepRunning = true;
 
         while (keepRunning) {
-            System.out.println();
-            System.out.println("Velkommen til Svømmeklubben Delfinen");
-            System.out.println("Vælge imellem disse personer: ");
-            System.out.println();
-            System.out.println("1. Formand");
-            System.out.println("2. Kassere");
-            System.out.println("3. Træner");
-            System.out.println("4. Afslut");
+            printMenu();
 
-            int Choises = scanner.nextInt();
+            int choise = scanner.nextInt();
 
-            switch (Choises) {
+            switch (choise) {
                 case 1:
                     boolean formandRunning = true;
                     while (formandRunning) {
-                        System.out.println("Formand: ");
-                        System.out.println("_________________");
-                        System.out.println("1. Opret medlemmere");
-                        System.out.println("2. Vis alle medlemmer");
-                        System.out.println("3. Tilbage til menu");
+                        printFormand();
 
-                        int FormandChoice = scanner.nextInt();
+                        int formandChoice = scanner.nextInt();
 
                         switch (FormandChoice) {
 
                             case 1:
                                 System.out.println();
                                 System.out.println("Fulde navn");
-                                String fullName = scanner.nextLine();
                                 scanner.nextLine();
+                                String fullName = readString();
+
+
                                 System.out.println("_________________");
 
                                 boolean validDate = false;
                                 System.out.println("Fødselsdato (dd-MM-yyyy)");
                                 String birthday = scanner.nextLine();
                                 while (!validDate) {
+                                    birthdate = scanner.nextLine();
                                     try {
                                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
                                         LocalDate birthdate = LocalDate.parse(birthday, formatter);
                                         LocalDate currentDate = LocalDate.now();
-                                        int age = Period.between(birthdate, currentDate).getYears();
+                                        int age = Period.between(birthday, currentDate).getYears();
 
                                         if (age < 18) {
                                             System.out.println(fullName + " er " + age + " år gammel " + "og er derfor juniorsvømmer.");
                                         } else {
                                             System.out.println(fullName + " er " + age + " år gammel " + "og er derfor seniorsvømmer.");
                                         }
-                                        validDate = true;
+
                                     } catch (Exception e) {
-                                        System.out.println("Ugyldigt datoformat. Brug formatet dd-MM-yyyy. Prøv igen.");
+                                        System.out.println("Der opstod en fejl. Prøv igen.");
                                     }
                                 }
                                 System.out.println("_________________");
 
+                                System.out.println("Køn (Dreng/Mand/Pige/Kvinde)");
                                 String gender = "";
                                 while (!gender.equalsIgnoreCase("Dreng") && !gender.equalsIgnoreCase("Mand") &&
                                         !gender.equalsIgnoreCase("Pige") && !gender.equalsIgnoreCase("Kvinde")) {
@@ -81,21 +75,17 @@ public class UserInterface {
                                     System.out.println("_________________");
                                 }
 
-
                                 System.out.println("E-mail");
-                                String email = scanner.nextLine();
-                                System.out.println("_________________");
-
-                                System.out.println("ID Nummer");
-                                int idNumber = scanner.nextInt();
+                                String email = readString();
                                 System.out.println("_________________");
 
                                 System.out.println("Mobilnummer");
-                                int phoneNumber = scanner.nextInt();
+                                int phoneNumber = readInt();
                                 System.out.println("_________________");
 
                                 System.out.println("Adresse");
-                                String adress = scanner.nextLine();
+                                scanner.nextLine();
+                                String adress = readString();
                                 System.out.println("_________________");
 
 
@@ -110,9 +100,12 @@ public class UserInterface {
                                     System.out.println("Ugyldigt svar. Indtast enten 'ja' eller 'nej'.");
                                 }
                                 System.out.println("_________________");
-                                System.out.println(birthday + " " + "er blevet registreret i klubben");
+                                System.out.println(fullName + " " + "er blevet registreret i klubben");
                                 System.out.println();
-                                dataBase.gemOplysningerICSV(fullName, birthday, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
+                                int idNumber = dataBase.getMedlemsListe().size()+1;
+                                System.out.println("Dette " + idNumber + " er" + " er medlemmets ID nummer.");
+                                dataBase.tilføjMedlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
+                                dataBase.gemOplysningerICSV(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
                                 break;
 
                             case 2:
@@ -126,8 +119,11 @@ public class UserInterface {
                             case 3:
                                 formandRunning = false;
                                 break;
+
                         }
+
                     }
+                    break;
 
 
                 case 2:
@@ -170,5 +166,61 @@ public class UserInterface {
             }
 
         }
+
+
+    }
+
+    public void printFormand() {
+        System.out.println("Formand: ");
+        System.out.println("_________________");
+        System.out.println("1. Opret medlemmere");
+        System.out.println("2. Vis alle medlemmer");
+        System.out.println("3. Tilbage til menu");
+    }
+
+    public void printMenu() {
+        System.out.println();
+        System.out.println("Velkommen til Svømmeklubben Delfinen");
+        System.out.println("Vælge imellem disse personer: ");
+        System.out.println();
+        System.out.println("1. Formand");
+        System.out.println("2. Kassere");
+        System.out.println("3. Træner");
+        System.out.println("4. Afslut");
+    }
+
+    private String readString() {
+        String readString;
+        do {
+            readString = scanner.nextLine();
+            if (readString.isEmpty()) {
+                System.out.println("Ugyldigt input.");
+            }
+        }
+        while (readString.isEmpty());
+        return readString;
+    }
+
+    private int readInt() {
+        while (!scanner.hasNextInt()) {
+            String text = scanner.nextLine();
+            System.out.println(text + " er ugyldigt input. Prøv igen.");
+        }
+        int result;
+        result = scanner.nextInt();
+        scanner.nextLine();
+        return result;
+    }
+
+    private double readDouble() {
+        while (!scanner.hasNextDouble()) {
+            String text = scanner.nextLine();
+            System.out.println(text + " er ugyldigt input. Prøv igen.");
+        }
+        double result;
+        result = scanner.nextDouble();
+        scanner.nextLine();
+        return result;
     }
 }
+

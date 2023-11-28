@@ -33,4 +33,13 @@ public class DataBase {
         fileHandler.gemOplysningerICSV(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
     }
 
+
+    public void tilføjMedlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String CompetitionSwimmer){
+        Medlem medlem = new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
+        medlemsListe.add(medlem);
+        fileHandler.gemOplysningerICSV(medlem);
+    }
+
+
+
 }

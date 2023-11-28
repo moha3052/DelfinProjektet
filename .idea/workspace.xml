@@ -4,20 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="Kan gemme medlemsopslyninger i csv filen">
+    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="csv fil">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Input.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Medlem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medlem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
     </list>
-    <list id="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" name="Changes by xuanloclam" comment="">
+    <list id="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" name="Changes by xuanloclam" comment="Changes by xuanloclam">
+      <change afterPath="$PROJECT_DIR$/medlemmer.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
     </list>
-    <list id="0409ed44-661a-4c55-bebf-ae112c13bbd3" name="Changes by younesbenaddi" comment="">
+    <list id="0409ed44-661a-4c55-bebf-ae112c13bbd3" name="Changes by younesbenaddi" comment="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer">
       <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Medlem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medlem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,46 +34,62 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/Medlem.java">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="2" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
-        <range start1="91" end1="93" start2="93" end2="105" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-      </ranges>
-    </file>
     <file path="$PROJECT_DIR$/src/main/java/UserInterface.java">
       <ranges>
-        <range start1="0" end1="2" start2="0" end2="0" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="5" end1="6" start2="3" end2="3" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="11" end1="13" start2="8" end2="8" changelist="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" />
-        <range start1="14" end1="15" start2="9" end2="9" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="16" end1="18" start2="10" end2="10" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="45" end1="46" start2="37" end2="37" changelist="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" />
-        <range start1="49" end1="50" start2="40" end2="42" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="54" end1="55" start2="46" end2="47" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="79" end1="80" start2="71" end2="72" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="90" end1="91" start2="82" end2="83" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="94" end1="95" start2="86" end2="87" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="98" end1="99" start2="90" end2="91" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="102" end1="103" start2="94" end2="95" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="107" end1="108" start2="99" end2="100" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="117" end1="118" start2="109" end2="110" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="119" end1="120" start2="111" end2="112" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
-        <range start1="127" end1="128" start2="119" end2="120" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="136" end1="137" start2="128" end2="128" changelist="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" />
-        <range start1="149" end1="150" start2="140" end2="140" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="167" end1="168" start2="157" end2="157" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="172" end1="173" start2="161" end2="161" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="3" end1="3" start2="3" end2="4" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="6" end1="6" start2="7" end2="8" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="8" end1="11" start2="10" end2="10" changelist="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" />
+        <range start1="14" end1="14" start2="13" end2="14" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="15" end1="23" start2="15" end2="16" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="24" end1="25" start2="17" end2="18" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="26" end1="27" start2="19" end2="20" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="30" end1="35" start2="23" end2="24" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="36" end1="37" start2="25" end2="26" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="38" end1="40" start2="27" end2="28" changelist="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" />
+        <range start1="43" end1="44" start2="31" end2="31" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="45" end1="45" start2="32" end2="35" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="48" end1="48" start2="38" end2="39" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="49" end1="50" start2="40" end2="40" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="51" end1="51" start2="41" end2="42" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="54" end1="55" start2="45" end2="46" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="56" end1="57" start2="47" end2="48" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="60" end1="60" start2="51" end2="52" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="62" end1="62" start2="54" end2="55" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="63" end1="64" start2="56" end2="57" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="65" end1="66" start2="58" end2="59" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="70" end1="70" start2="63" end2="64" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="73" end1="74" start2="67" end2="67" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="83" end1="84" start2="76" end2="76" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="85" end1="86" start2="77" end2="78" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="87" end1="91" start2="79" end2="79" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="93" end1="94" start2="81" end2="82" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="97" end1="98" start2="85" end2="87" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="102" end1="103" start2="91" end2="93" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="112" end1="113" start2="102" end2="103" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="114" end1="115" start2="104" end2="108" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="117" end1="117" start2="110" end2="111" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="128" end1="128" start2="122" end2="123" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="129" end1="129" start2="124" end2="125" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="130" end1="130" start2="126" end2="127" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="131" end1="132" start2="128" end2="128" changelist="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" />
+        <range start1="133" end1="135" start2="129" end2="131" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="140" end1="142" start2="136" end2="138" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="143" end1="144" start2="139" end2="140" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="146" end1="147" start2="142" end2="143" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="149" end1="152" start2="145" end2="149" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="156" end1="159" start2="153" end2="155" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="160" end1="161" start2="156" end2="157" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="163" end1="164" start2="159" end2="160" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="172" end1="172" start2="168" end2="170" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="173" end1="174" start2="171" end2="226" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
       </ranges>
     </file>
     <file path="$PROJECT_DIR$/src/main/java/FileHandler.java">
       <ranges>
-        <range start1="0" end1="1" start2="0" end2="1" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="2" end1="5" start2="2" end2="2" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="7" end1="7" start2="4" end2="5" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="29" end1="30" start2="27" end2="27" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
-        <range start1="31" end1="31" start2="28" end2="44" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="32" end1="32" start2="45" end2="52" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="33" end1="34" start2="53" end2="57" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="8" end1="9" start2="8" end2="9" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="15" end1="16" start2="15" end2="16" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="42" end1="43" start2="42" end2="43" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="52" end1="52" start2="52" end2="72" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
       </ranges>
     </file>
   </component>
@@ -116,7 +130,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700312493877</updated>
       <workItem from="1700312494921" duration="43434000" />
-      <workItem from="1701027454536" duration="16944000" />
+      <workItem from="1701027454536" duration="29963000" />
     </task>
     <task id="LOCAL-00001" summary="nye">
       <option name="closed" value="true" />
@@ -158,7 +172,31 @@
       <option name="project" value="LOCAL" />
       <updated>1701036800278</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer">
+      <option name="closed" value="true" />
+      <created>1701095842171</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701095842171</updated>
+    </task>
+    <task id="LOCAL-00007" summary="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer">
+      <option name="closed" value="true" />
+      <created>1701095851915</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701095851915</updated>
+    </task>
+    <task id="LOCAL-00008" summary="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer">
+      <option name="closed" value="true" />
+      <created>1701095933480</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701095933480</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,6 +217,10 @@
     <MESSAGE value="nye" />
     <MESSAGE value="Kan gemme i csv fil" />
     <MESSAGE value="Kan gemme medlemsopslyninger i csv filen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kan gemme medlemsopslyninger i csv filen" />
+    <MESSAGE value="Changes by xuanloclam" />
+    <MESSAGE value="Changes by younesbenaddi" />
+    <MESSAGE value="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer" />
+    <MESSAGE value="csv fil" />
+    <option name="LAST_COMMIT_MESSAGE" value="csv fil" />
   </component>
 </project>

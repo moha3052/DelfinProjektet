@@ -40,7 +40,7 @@ public class FileHandler {
                 int phoneNumber = Integer.parseInt(parts[5].trim());
                 String adress = parts[6];
                 String isCompetitionSwimmer = parts[7];
-                Medlem medlem = new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, isCompetitionSwimmer);
+                Medlem medlem = new Medlem(birthdate,fullName, gender, idNumber, email, phoneNumber, adress, isCompetitionSwimmer);
                 visAlleMedlemmer.add(medlem);
 
                 index++;
@@ -49,6 +49,26 @@ public class FileHandler {
             e.printStackTrace();
         }
         return visAlleMedlemmer;
+    }
+
+    public void gemOplysningerICSV(Medlem medlem) {
+        String csvFile = "medlemmer.csv";
+        try {
+            FileWriter fileWriter = new FileWriter(csvFile, true);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+
+            String data = String.format("%s;%s;%s;%d;%s;%d;%s;%s\n",medlem.getBirthdate(), medlem.getFullName(), medlem.getGender(), medlem.getIdNumber(), medlem.getEmail(), medlem.getPhoneNumber(), medlem.getAdress(), medlem.getCompetitionSwimmer());
+
+
+            printWriter.print(data);
+
+
+            printWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            System.out.println("Fejl ved skrivning til CSV-fil: " + e.getMessage());
+        }
     }
 
     }
