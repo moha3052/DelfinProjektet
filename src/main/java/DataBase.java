@@ -43,5 +43,21 @@ public class DataBase {
     }
 
 
+    public Medlem findMedlemById(int id) {
+        for (Medlem medlem : medlemsListe){
+            if (medlem.getIdNumber() == id){
+                return medlem;
+            }
+        }
+        return null;
+    }
 
+    public void opdaterMedlem(Medlem opdateretMedlem) {
+        for (int i = 0; i < medlemsListe.size(); i++) {
+            if (medlemsListe.get(i).getIdNumber() == opdateretMedlem.getIdNumber()) {
+                medlemsListe.set(i, opdateretMedlem);
+                return;
+            }
+        }
+    }
 }
