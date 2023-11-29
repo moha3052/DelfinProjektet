@@ -27,7 +27,8 @@ public class UserInterface {
                         handletræner();
                         break;
                     case 4:
-                        alleRunning = false;
+                        keepRunning = false;
+                        dataBase.gemMedlemlistTilCSV();
                         System.out.println("Programmet er afsluttet");
                         break;
                     default:
@@ -193,15 +194,18 @@ public class UserInterface {
                     if (age < 18) {
                         System.out.println(fullName + " er " + age + " år gammel " + "og er derfor juniorsvømmer.");
                         validDate = true;
-                    } else {
+                    } else if (age >= 18 && age <= 59) {
                         System.out.println(fullName + " er " + age + " år gammel " + "og er derfor seniorsvømmer.");
                         validDate = true;
+                    } else if (age >= 60) {
+                        System.out.println(fullName + " er " + age + " år gammel " + "og er derfor pensionist.");
+                        validDate = true;
                     }
-
                 } catch (Exception e) {
                     System.out.println("Der opstod en fejl. Prøv igen.");
                 }
             }
+
             System.out.println("_________________");
 
             System.out.println("Køn (Dreng/Mand/Pige/Kvinde)");
@@ -226,7 +230,6 @@ public class UserInterface {
             System.out.println("_________________");
 
             System.out.println("Adresse");
-            scanner.nextLine();
             String adress = readString();
             System.out.println("_________________");
 
@@ -242,7 +245,6 @@ public class UserInterface {
             } else {
                 System.out.println("Ugyldigt svar. Indtast enten 'ja' eller 'nej'.");
             }
-            System.out.println("_________________");
             System.out.println(fullName + " " + "er blevet registreret i klubben");
             System.out.println();
             int idNumber = dataBase.getMedlemsListe().size() + 1;
@@ -290,7 +292,8 @@ public class UserInterface {
                     default:
                         System.out.println("Ugyldigt valg.");
                 }
-                dataBase.opdaterMedlem(medlem);
+                dataBase.opdaterMedlemIDatabase(medlem);
+                System.out.println();
                 System.out.println("Medlemmet er opdateret.");
             } else {
                 System.out.println("Medlem med ID " + id + " blev ikke fundet.");

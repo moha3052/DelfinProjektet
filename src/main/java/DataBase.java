@@ -1,4 +1,4 @@
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 
 public class DataBase {
@@ -6,8 +6,6 @@ public class DataBase {
     private ArrayList<Medlem> medlemsListe;
     private FileHandler fileHandler;
 
-
-    private File file = new File("medlemmer.csv");
 
     public void loadMedlemmerFraCSV(){
         this.medlemsListe = fileHandler.loadMedlemmer();
@@ -29,35 +27,34 @@ public class DataBase {
         loadMedlemmerFraCSV();
     }
 
-    public void gemOplysningerICSV(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String CompetitionSwimmer){
-        fileHandler.gemOplysningerICSV(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
-    }
-   public void gemOplysningerICSV(Medlem medlem){
-        fileHandler.gemOplysningerICSV(medlem);
-    }
-
-    public void tilføjMedlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String CompetitionSwimmer){
-        Medlem medlem = new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
-        medlemsListe.add(medlem);
-        fileHandler.gemOplysningerICSV(medlem);
-    }
-
 
     public Medlem findMedlemById(int id) {
-        for (Medlem medlem : medlemsListe){
-            if (medlem.getIdNumber() == id){
+        for(Medlem medlem: medlemsListe){
+            if(id == medlem.getIdNumber()){
                 return medlem;
             }
         }
+        System.out.println("kunne ikke finde id nummer");
         return null;
+
     }
 
-    public void opdaterMedlem(Medlem opdateretMedlem) {
+    public void opdaterMedlemIDatabase(Medlem updateretMedlem){
         for (int i = 0; i < medlemsListe.size(); i++) {
-            if (medlemsListe.get(i).getIdNumber() == opdateretMedlem.getIdNumber()) {
-                medlemsListe.set(i, opdateretMedlem);
-                return;
+            if (medlemsListe.get(i).getIdNumber() == updateretMedlem.getIdNumber()){
+                medlemsListe.set(i, updateretMedlem);
             }
         }
     }
+
+    public void tilføjMedlemTilArray(Medlem medlem){
+        medlemsListe.add(medlem);
+    }
+
+    public void gemMedlemlistTilCSV(){
+        fileHandler.gemMedlemslisteTilCSV(medlemsListe);
+    }
+
+
+
 }
