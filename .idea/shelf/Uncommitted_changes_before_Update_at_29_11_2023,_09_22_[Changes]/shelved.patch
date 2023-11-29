@@ -1,0 +1,448 @@
+Index: src/main/java/FileHandler.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.io.*;\n\nimport java.util.ArrayList;\nimport java.util.Scanner;\n\n\npublic class FileHandler {\n\n    public void gemOplysningerICSV(String fullName, String birthday, String gender, int idNumber, String email, int phoneNumber, String adress, String CompetitionSwimmer) {\n        String csvFile = \"medlemmer.csv\";\n        try {\n            FileWriter fileWriter = new FileWriter(csvFile, true);\n            PrintWriter printWriter = new PrintWriter(fileWriter);\n\n\n            String data = String.format(\"%s,%s,%s,%d,%s,%d,%s,%s\\n\", fullName, birthday, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);\n\n\n            printWriter.print(data);\n\n\n            printWriter.close();\n            fileWriter.close();\n        } catch (IOException e) {\n            System.out.println(\"Fejl ved skrivning til CSV-fil: \" + e.getMessage());\n        }\n    }\n\n    public ArrayList<Medlem> loadMedlem(){\n        ArrayList<Medlem> visAlleMedlemmer = new ArrayList<>();\n        try(Scanner scanner = new Scanner(new File(\"medlemmer.csv\"))){\n            int index = 1;\n            while( scanner.hasNextLine()){\n                String[] parts = scanner.nextLine().split(\";\");\n                String birthdate = parts[0];\n                String fullName = parts[1];\n                String gender = parts[2];\n                int idNumber = Integer.parseInt(parts[3].trim());\n                String email = parts[4];\n                int phoneNumber = Integer.parseInt(parts[5].trim());\n                String adress = parts[6];\n                String isCompetitionSwimmer = parts[7];\n                Medlem medlem = new Medlem(birthdate,fullName, gender, idNumber, email, phoneNumber, adress, isCompetitionSwimmer);\n                visAlleMedlemmer.add(medlem);\n\n                index++;\n            }\n        } catch (FileNotFoundException e) {\n            e.printStackTrace();\n        }\n        return visAlleMedlemmer;\n    }\n\n    public void gemOplysningerICSV(Medlem medlem) {\n        String csvFile = \"medlemmer.csv\";\n        try {\n            FileWriter fileWriter = new FileWriter(csvFile, true);\n            PrintWriter printWriter = new PrintWriter(fileWriter);\n\n\n            String data = String.format(\"%s;%s;%s;%d;%s;%d;%s;%s\\n\",medlem.getBirthdate(), medlem.getFullName(), medlem.getGender(), medlem.getIdNumber(), medlem.getEmail(), medlem.getPhoneNumber(), medlem.getAdress(), medlem.getCompetitionSwimmer());\n\n\n            printWriter.print(data);\n\n\n            printWriter.close();\n            fileWriter.close();\n        } catch (IOException e) {\n            System.out.println(\"Fejl ved skrivning til CSV-fil: \" + e.getMessage());\n        }\n    }\n\n\n\n    public ArrayList<Medlem> loadMedlemmer(){\n        ArrayList<Medlem> visAlleMedlemmer = new ArrayList<>();\n        try(Scanner scanner = new Scanner(new File(\"medlemmer.csv\"))){\n            int index = 1;\n            while( scanner.hasNextLine()){\n                String[] parts = scanner.nextLine().split(\";\");\n                String birthdate = parts[0];\n                String fullName = parts[1];\n                String gender = parts[2];\n                int idNumber = Integer.parseInt(parts[3].trim());\n                String email = parts[4];\n                int phoneNumber = Integer.parseInt(parts[5].trim());\n                String adress = parts[6];\n                String isCompetitionSwimmer = parts[7];\n                Medlem medlem = new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, isCompetitionSwimmer);\n                visAlleMedlemmer.add(medlem);\n\n                index++;\n            }\n        } catch (FileNotFoundException e) {\n            e.printStackTrace();\n        }\n        return visAlleMedlemmer;\n    }\n\n    }\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/FileHandler.java b/src/main/java/FileHandler.java
+--- a/src/main/java/FileHandler.java	(revision 524b9c34f0841355a2b54be1f5b26f25857c7a52)
++++ b/src/main/java/FileHandler.java	(date 1701198127808)
+@@ -13,7 +13,7 @@
+             PrintWriter printWriter = new PrintWriter(fileWriter);
+ 
+ 
+-            String data = String.format("%s,%s,%s,%d,%s,%d,%s,%s\n", fullName, birthday, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
++            String data = String.format("%s;%s;%s;%d;%s;%d;%s;%s\n", fullName, birthday, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
+ 
+ 
+             printWriter.print(data);
+Index: src/main/java/UserInterface.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.time.LocalDate;\nimport java.time.Period;\nimport java.time.format.DateTimeFormatter;\nimport java.time.format.DateTimeParseException;\nimport java.util.Scanner;\n\npublic class UserInterface {\n\n    public void StartProgram() {\n\n\n        Scanner scanner = new Scanner(System.in);\n        DataBase dataBase = new DataBase();\n        boolean keepRunning = true;\n\n        while (keepRunning) {\n            printMenu();\n\n            int choise = scanner.nextInt();\n\n            switch (choise) {\n                case 1:\n                    boolean formandRunning = true;\n                    while (formandRunning) {\n                        printFormand();\n\n                        int formandChoice = scanner.nextInt();\n\n                        switch (FormandChoice) {\n\n                            case 1:\n                                System.out.println();\n                                System.out.println(\"Fulde navn\");\n                                scanner.nextLine();\n                                String fullName = readString();\n\n\n                                System.out.println(\"_________________\");\n\n                                boolean validDate = false;\n                                System.out.println(\"Fødselsdato (dd-MM-yyyy)\");\n                                String birthday = scanner.nextLine();\n                                while (!validDate) {\n                                    birthdate = scanner.nextLine();\n                                    try {\n                                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"dd-MM-yyyy\");\n\n                                        LocalDate birthdate = LocalDate.parse(birthday, formatter);\n                                        LocalDate currentDate = LocalDate.now();\n                                        int age = Period.between(birthday, currentDate).getYears();\n\n                                        if (age < 18) {\n                                            System.out.println(fullName + \" er \" + age + \" år gammel \" + \"og er derfor juniorsvømmer.\");\n                                        } else {\n                                            System.out.println(fullName + \" er \" + age + \" år gammel \" + \"og er derfor seniorsvømmer.\");\n                                        }\n\n                                    } catch (Exception e) {\n                                        System.out.println(\"Der opstod en fejl. Prøv igen.\");\n                                    }\n                                }\n                                System.out.println(\"_________________\");\n\n                                System.out.println(\"Køn (Dreng/Mand/Pige/Kvinde)\");\n                                String gender = \"\";\n                                while (!gender.equalsIgnoreCase(\"Dreng\") && !gender.equalsIgnoreCase(\"Mand\") &&\n                                        !gender.equalsIgnoreCase(\"Pige\") && !gender.equalsIgnoreCase(\"Kvinde\")) {\n                                    System.out.println(\"Køn (Dreng/Mand/Pige/Kvinde)\");\n                                    gender = scanner.nextLine();\n\n                                    if (!gender.equalsIgnoreCase(\"Dreng\") && !gender.equalsIgnoreCase(\"Mand\") &&\n                                            !gender.equalsIgnoreCase(\"Pige\") && !gender.equalsIgnoreCase(\"Kvinde\")) {\n                                        System.out.println(\"Ugyldigt input. \\nPrøv igen\");\n                                    }\n                                    System.out.println(\"_________________\");\n                                }\n\n                                System.out.println(\"E-mail\");\n                                String email = readString();\n                                System.out.println(\"_________________\");\n\n                                System.out.println(\"Mobilnummer\");\n                                int phoneNumber = readInt();\n                                System.out.println(\"_________________\");\n\n                                System.out.println(\"Adresse\");\n                                scanner.nextLine();\n                                String adress = readString();\n                                System.out.println(\"_________________\");\n\n\n                                System.out.println(\"Er medlemmet konkurrencesvømmer (ja/nej)?\");\n                                String CompetitionSwimmer = scanner.nextLine();\n\n                                if (CompetitionSwimmer.equals(\"ja\")) {\n\n                                } else if (CompetitionSwimmer.equals(\"nej\")) {\n\n                                } else {\n                                    System.out.println(\"Ugyldigt svar. Indtast enten 'ja' eller 'nej'.\");\n                                }\n                                System.out.println(\"_________________\");\n                                System.out.println(fullName + \" \" + \"er blevet registreret i klubben\");\n                                System.out.println();\n                                int idNumber = dataBase.getMedlemsListe().size()+1;\n                                System.out.println(\"Dette \" + idNumber + \" er\" + \" er medlemmets ID nummer.\");\n                                dataBase.tilføjMedlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);\n                                dataBase.gemOplysningerICSV(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);\n                                break;\n\n                            case 2:\n                                System.out.println(\"Her er medlemmerne i delfinsvømmeklubben: \");\n                                System.out.println();\n                                System.out.println(\"_________________\");\n                                System.out.println();\n                                dataBase.printMedlemsList();\n                                break;\n\n                            case 3:\n                                formandRunning = false;\n                                break;\n\n                        }\n\n                    }\n                    break;\n\n\n                case 2:\n                    boolean KassereRunning = true;\n                    while (KassereRunning) {\n                        System.out.println(\"Kassere: \");\n                        System.out.println(\"_________________\");\n                        System.out.println(\"3. Tilbage til menu\");\n                        System.out.println();\n\n                        int KassereChoise = scanner.nextInt();\n                        switch (KassereChoise) {\n                            case 3:\n                                KassereRunning = false;\n                        }\n                    }\n                break;\n\n\n                case 3:\n                    boolean TrænerRuning = true;\n                    while (TrænerRuning) {\n                        System.out.println(\"Træner: \");\n                        System.out.println(\"_________________\");\n                        System.out.println(\"3. Tilbage til menu\");\n                        System.out.println();\n\n                        int TrænerChoise = scanner.nextInt();\n                        switch (TrænerChoise) {\n                            case 3:\n                                TrænerRuning = false;\n                        }\n                    }\n                break;\n\n                case 4:\n                    keepRunning = false;\n                    System.out.println(\"Programmet er afsluttet\");\n                    break;\n            }\n\n        }\n\n\n    }\n\n    public void printFormand() {\n        System.out.println(\"Formand: \");\n        System.out.println(\"_________________\");\n        System.out.println(\"1. Opret medlemmere\");\n        System.out.println(\"2. Vis alle medlemmer\");\n        System.out.println(\"3. Tilbage til menu\");\n    }\n\n    public void printMenu() {\n        System.out.println();\n        System.out.println(\"Velkommen til Svømmeklubben Delfinen\");\n        System.out.println(\"Vælge imellem disse personer: \");\n        System.out.println();\n        System.out.println(\"1. Formand\");\n        System.out.println(\"2. Kassere\");\n        System.out.println(\"3. Træner\");\n        System.out.println(\"4. Afslut\");\n    }\n\n    private String readString() {\n        String readString;\n        do {\n            readString = scanner.nextLine();\n            if (readString.isEmpty()) {\n                System.out.println(\"Ugyldigt input.\");\n            }\n        }\n        while (readString.isEmpty());\n        return readString;\n    }\n\n    private int readInt() {\n        while (!scanner.hasNextInt()) {\n            String text = scanner.nextLine();\n            System.out.println(text + \" er ugyldigt input. Prøv igen.\");\n        }\n        int result;\n        result = scanner.nextInt();\n        scanner.nextLine();\n        return result;\n    }\n\n    private double readDouble() {\n        while (!scanner.hasNextDouble()) {\n            String text = scanner.nextLine();\n            System.out.println(text + \" er ugyldigt input. Prøv igen.\");\n        }\n        double result;\n        result = scanner.nextDouble();\n        scanner.nextLine();\n        return result;\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/UserInterface.java b/src/main/java/UserInterface.java
+--- a/src/main/java/UserInterface.java	(revision 524b9c34f0841355a2b54be1f5b26f25857c7a52)
++++ b/src/main/java/UserInterface.java	(date 1701197360719)
+@@ -5,14 +5,13 @@
+ import java.util.Scanner;
+ 
+ public class UserInterface {
+-
+-    public void StartProgram() {
+-
+-
+-        Scanner scanner = new Scanner(System.in);
++    Scanner scanner = new Scanner(System.in);
++
++    public void StartProgram() {
+         DataBase dataBase = new DataBase();
+         boolean keepRunning = true;
+ 
++
+         while (keepRunning) {
+             printMenu();
+ 
+@@ -26,8 +25,7 @@
+ 
+                         int formandChoice = scanner.nextInt();
+ 
+-                        switch (FormandChoice) {
+-
++                        switch (formandChoice) {
+                             case 1:
+                                 System.out.println();
+                                 System.out.println("Fulde navn");
+@@ -35,62 +33,64 @@
+                                 String fullName = readString();
+ 
+ 
+-                                System.out.println("_________________");
++                                System.out.println("_______________");
+ 
+                                 boolean validDate = false;
++                                String birthdate = null;
+                                 System.out.println("Fødselsdato (dd-MM-yyyy)");
+-                                String birthday = scanner.nextLine();
+                                 while (!validDate) {
+                                     birthdate = scanner.nextLine();
+                                     try {
+                                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+ 
+-                                        LocalDate birthdate = LocalDate.parse(birthday, formatter);
++                                        LocalDate birthday = LocalDate.parse(birthdate, formatter);
+                                         LocalDate currentDate = LocalDate.now();
+                                         int age = Period.between(birthday, currentDate).getYears();
+ 
+                                         if (age < 18) {
+                                             System.out.println(fullName + " er " + age + " år gammel " + "og er derfor juniorsvømmer.");
++                                            validDate = true;
+                                         } else {
+                                             System.out.println(fullName + " er " + age + " år gammel " + "og er derfor seniorsvømmer.");
++                                            validDate = true;
+                                         }
+ 
+                                     } catch (Exception e) {
+                                         System.out.println("Der opstod en fejl. Prøv igen.");
+                                     }
+                                 }
+-                                System.out.println("_________________");
++                                System.out.println("_______________");
+ 
+                                 System.out.println("Køn (Dreng/Mand/Pige/Kvinde)");
+                                 String gender = "";
+                                 while (!gender.equalsIgnoreCase("Dreng") && !gender.equalsIgnoreCase("Mand") &&
+                                         !gender.equalsIgnoreCase("Pige") && !gender.equalsIgnoreCase("Kvinde")) {
+-                                    System.out.println("Køn (Dreng/Mand/Pige/Kvinde)");
+                                     gender = scanner.nextLine();
+ 
+                                     if (!gender.equalsIgnoreCase("Dreng") && !gender.equalsIgnoreCase("Mand") &&
+                                             !gender.equalsIgnoreCase("Pige") && !gender.equalsIgnoreCase("Kvinde")) {
+                                         System.out.println("Ugyldigt input. \nPrøv igen");
+                                     }
+-                                    System.out.println("_________________");
++                                    System.out.println("_______________");
+                                 }
+ 
+                                 System.out.println("E-mail");
+                                 String email = readString();
+-                                System.out.println("_________________");
++                                System.out.println("_______________");
+ 
+                                 System.out.println("Mobilnummer");
+                                 int phoneNumber = readInt();
+-                                System.out.println("_________________");
++                                System.out.println("_______________");
+ 
+                                 System.out.println("Adresse");
+                                 scanner.nextLine();
+                                 String adress = readString();
+-                                System.out.println("_________________");
++                                System.out.println("_______________");
+ 
+ 
+                                 System.out.println("Er medlemmet konkurrencesvømmer (ja/nej)?");
+-                                String CompetitionSwimmer = scanner.nextLine();
++                                String CompetitionSwimmer = readString();
++                                System.out.println("_______________");
+ 
+                                 if (CompetitionSwimmer.equals("ja")) {
+ 
+@@ -99,19 +99,20 @@
+                                 } else {
+                                     System.out.println("Ugyldigt svar. Indtast enten 'ja' eller 'nej'.");
+                                 }
+-                                System.out.println("_________________");
++                                System.out.println("_______________");
+                                 System.out.println(fullName + " " + "er blevet registreret i klubben");
+                                 System.out.println();
+                                 int idNumber = dataBase.getMedlemsListe().size()+1;
+-                                System.out.println("Dette " + idNumber + " er" + " er medlemmets ID nummer.");
++                                System.out.println("Dette " + idNumber + " er medlemmets ID nummer.");
+                                 dataBase.tilføjMedlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
+                                 dataBase.gemOplysningerICSV(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
+                                 break;
+ 
++
+                             case 2:
+                                 System.out.println("Her er medlemmerne i delfinsvømmeklubben: ");
+                                 System.out.println();
+-                                System.out.println("_________________");
++                                System.out.println("_______________");
+                                 System.out.println();
+                                 dataBase.printMedlemsList();
+                                 break;
+@@ -125,39 +126,38 @@
+                     }
+                     break;
+ 
+-
+                 case 2:
+-                    boolean KassereRunning = true;
+-                    while (KassereRunning) {
++                    boolean kassereRunning = true;
++                    while (kassereRunning) {
+                         System.out.println("Kassere: ");
+-                        System.out.println("_________________");
++                        System.out.println("_______________");
+                         System.out.println("3. Tilbage til menu");
+                         System.out.println();
+ 
+-                        int KassereChoise = scanner.nextInt();
+-                        switch (KassereChoise) {
++                        int kassereChoise = scanner.nextInt();
++                        switch (kassereChoise) {
+                             case 3:
+-                                KassereRunning = false;
++                                kassereRunning = false;
+                         }
+                     }
+-                break;
++                    break;
+ 
+ 
+                 case 3:
+-                    boolean TrænerRuning = true;
+-                    while (TrænerRuning) {
++
++                    boolean trænerRuning = true;
++                    while (trænerRuning) {
+                         System.out.println("Træner: ");
+-                        System.out.println("_________________");
++                        System.out.println("_______________");
+                         System.out.println("3. Tilbage til menu");
+                         System.out.println();
+-
+-                        int TrænerChoise = scanner.nextInt();
+-                        switch (TrænerChoise) {
++                        int trænerChoise = scanner.nextInt();
++                        switch (trænerChoise) {
+                             case 3:
+-                                TrænerRuning = false;
++                                trænerRuning = false;
+                         }
+                     }
+-                break;
++                    break;
+ 
+                 case 4:
+                     keepRunning = false;
+@@ -172,7 +172,7 @@
+ 
+     public void printFormand() {
+         System.out.println("Formand: ");
+-        System.out.println("_________________");
++        System.out.println("_______________");
+         System.out.println("1. Opret medlemmere");
+         System.out.println("2. Vis alle medlemmer");
+         System.out.println("3. Tilbage til menu");
+@@ -222,5 +222,4 @@
+         scanner.nextLine();
+         return result;
+     }
+-}
+-
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" name=\"Changes\" comment=\"csv fil\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/DataBase.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/DataBase.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/FileHandler.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/FileHandler.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/UserInterface.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/UserInterface.java\" afterDir=\"false\" />\n    </list>\n    <list id=\"d66710bf-1d7f-4782-a858-eb8e9d74dcb8\" name=\"Changes by xuanloclam\" comment=\"Changes by xuanloclam\">\n      <change afterPath=\"$PROJECT_DIR$/medlemmer.csv\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/UserInterface.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/UserInterface.java\" afterDir=\"false\" />\n    </list>\n    <list id=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" name=\"Changes by younesbenaddi\" comment=\"kan nu printe det som stå i csv filen og man kan oprette ny medlemmer\">\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/FileHandler.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/FileHandler.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/UserInterface.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/UserInterface.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"LineStatusTrackerManager\">\n    <file path=\"$PROJECT_DIR$/src/main/java/UserInterface.java\">\n      <ranges>\n        <range start1=\"3\" end1=\"3\" start2=\"3\" end2=\"4\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"6\" end1=\"6\" start2=\"7\" end2=\"8\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"8\" end1=\"11\" start2=\"10\" end2=\"10\" changelist=\"d66710bf-1d7f-4782-a858-eb8e9d74dcb8\" />\n        <range start1=\"14\" end1=\"14\" start2=\"13\" end2=\"14\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"15\" end1=\"23\" start2=\"15\" end2=\"16\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"24\" end1=\"25\" start2=\"17\" end2=\"18\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"26\" end1=\"27\" start2=\"19\" end2=\"20\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"30\" end1=\"35\" start2=\"23\" end2=\"24\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"36\" end1=\"37\" start2=\"25\" end2=\"26\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"38\" end1=\"40\" start2=\"27\" end2=\"28\" changelist=\"d66710bf-1d7f-4782-a858-eb8e9d74dcb8\" />\n        <range start1=\"43\" end1=\"44\" start2=\"31\" end2=\"31\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"45\" end1=\"45\" start2=\"32\" end2=\"35\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"48\" end1=\"48\" start2=\"38\" end2=\"39\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"49\" end1=\"50\" start2=\"40\" end2=\"40\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"51\" end1=\"51\" start2=\"41\" end2=\"42\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"54\" end1=\"55\" start2=\"45\" end2=\"46\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"56\" end1=\"57\" start2=\"47\" end2=\"48\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"60\" end1=\"60\" start2=\"51\" end2=\"52\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"62\" end1=\"62\" start2=\"54\" end2=\"55\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"63\" end1=\"64\" start2=\"56\" end2=\"57\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"65\" end1=\"66\" start2=\"58\" end2=\"59\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"70\" end1=\"70\" start2=\"63\" end2=\"64\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"73\" end1=\"74\" start2=\"67\" end2=\"67\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"83\" end1=\"84\" start2=\"76\" end2=\"76\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"85\" end1=\"86\" start2=\"77\" end2=\"78\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"87\" end1=\"91\" start2=\"79\" end2=\"79\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"93\" end1=\"94\" start2=\"81\" end2=\"82\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"97\" end1=\"98\" start2=\"85\" end2=\"87\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"102\" end1=\"103\" start2=\"91\" end2=\"93\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"112\" end1=\"113\" start2=\"102\" end2=\"103\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"114\" end1=\"115\" start2=\"104\" end2=\"108\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"117\" end1=\"117\" start2=\"110\" end2=\"111\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"128\" end1=\"128\" start2=\"122\" end2=\"123\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"129\" end1=\"129\" start2=\"124\" end2=\"125\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"130\" end1=\"130\" start2=\"126\" end2=\"127\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"131\" end1=\"132\" start2=\"128\" end2=\"128\" changelist=\"d66710bf-1d7f-4782-a858-eb8e9d74dcb8\" />\n        <range start1=\"133\" end1=\"135\" start2=\"129\" end2=\"131\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"140\" end1=\"142\" start2=\"136\" end2=\"138\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"143\" end1=\"144\" start2=\"139\" end2=\"140\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"146\" end1=\"147\" start2=\"142\" end2=\"143\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"149\" end1=\"152\" start2=\"145\" end2=\"149\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"156\" end1=\"159\" start2=\"153\" end2=\"155\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"160\" end1=\"161\" start2=\"156\" end2=\"157\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"163\" end1=\"164\" start2=\"159\" end2=\"160\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"172\" end1=\"172\" start2=\"168\" end2=\"170\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"173\" end1=\"174\" start2=\"171\" end2=\"226\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n      </ranges>\n    </file>\n    <file path=\"$PROJECT_DIR$/src/main/java/FileHandler.java\">\n      <ranges>\n        <range start1=\"8\" end1=\"9\" start2=\"8\" end2=\"9\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"15\" end1=\"16\" start2=\"15\" end2=\"16\" changelist=\"0409ed44-661a-4c55-bebf-ae112c13bbd3\" />\n        <range start1=\"42\" end1=\"43\" start2=\"42\" end2=\"43\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n        <range start1=\"52\" end1=\"52\" start2=\"52\" end2=\"72\" changelist=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" />\n      </ranges>\n    </file>\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 8\n}</component>\n  <component name=\"ProjectId\" id=\"2YLkxIz9fc5R7rqTOfuo5CQMepU\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CreateClassDialog.RecentsKey\">\n      <recent name=\"\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ca52fd93-6d93-4709-b0ac-e84e6bb56ebc\" name=\"Changes\" comment=\"\" />\n      <created>1700312493877</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1700312493877</updated>\n      <workItem from=\"1700312494921\" duration=\"43434000\" />\n      <workItem from=\"1701027454536\" duration=\"29963000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"nye\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1700747008877</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1700747008877</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Kan gemme i csv fil\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1700923412689</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1700923412689</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Kan gemme i csv fil\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1701032087048</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1701032087048</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Kan gemme i csv fil\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1701032147686</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1701032147686</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Kan gemme medlemsopslyninger i csv filen\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1701036800278</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1701036800278</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"kan nu printe det som stå i csv filen og man kan oprette ny medlemmer\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1701095842171</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1701095842171</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"kan nu printe det som stå i csv filen og man kan oprette ny medlemmer\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1701095851915</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1701095851915</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"kan nu printe det som stå i csv filen og man kan oprette ny medlemmer\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1701095933480</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1701095933480</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"9\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"nye\" />\n    <MESSAGE value=\"Kan gemme i csv fil\" />\n    <MESSAGE value=\"Kan gemme medlemsopslyninger i csv filen\" />\n    <MESSAGE value=\"Changes by xuanloclam\" />\n    <MESSAGE value=\"Changes by younesbenaddi\" />\n    <MESSAGE value=\"kan nu printe det som stå i csv filen og man kan oprette ny medlemmer\" />\n    <MESSAGE value=\"csv fil\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"csv fil\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 524b9c34f0841355a2b54be1f5b26f25857c7a52)
++++ b/.idea/workspace.xml	(date 1701246152461)
+@@ -4,17 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="csv fil">
++    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="Kan gemme i csv fil">
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileHandler.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
+-    </list>
+-    <list id="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" name="Changes by xuanloclam" comment="Changes by xuanloclam">
+-      <change afterPath="$PROJECT_DIR$/medlemmer.csv" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
+-    </list>
+-    <list id="0409ed44-661a-4c55-bebf-ae112c13bbd3" name="Changes by younesbenaddi" comment="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer">
+       <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileHandler.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
+     </list>
+@@ -29,70 +21,13 @@
+         <option value="Class" />
+       </list>
+     </option>
++  </component>
++  <component name="Git.Merge.Settings">
++    <option name="BRANCH" value="origin/main" />
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="LineStatusTrackerManager">
+-    <file path="$PROJECT_DIR$/src/main/java/UserInterface.java">
+-      <ranges>
+-        <range start1="3" end1="3" start2="3" end2="4" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="6" end1="6" start2="7" end2="8" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="8" end1="11" start2="10" end2="10" changelist="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" />
+-        <range start1="14" end1="14" start2="13" end2="14" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="15" end1="23" start2="15" end2="16" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="24" end1="25" start2="17" end2="18" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="26" end1="27" start2="19" end2="20" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="30" end1="35" start2="23" end2="24" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="36" end1="37" start2="25" end2="26" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="38" end1="40" start2="27" end2="28" changelist="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" />
+-        <range start1="43" end1="44" start2="31" end2="31" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="45" end1="45" start2="32" end2="35" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="48" end1="48" start2="38" end2="39" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="49" end1="50" start2="40" end2="40" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="51" end1="51" start2="41" end2="42" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="54" end1="55" start2="45" end2="46" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="56" end1="57" start2="47" end2="48" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="60" end1="60" start2="51" end2="52" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="62" end1="62" start2="54" end2="55" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="63" end1="64" start2="56" end2="57" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="65" end1="66" start2="58" end2="59" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="70" end1="70" start2="63" end2="64" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="73" end1="74" start2="67" end2="67" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="83" end1="84" start2="76" end2="76" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="85" end1="86" start2="77" end2="78" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="87" end1="91" start2="79" end2="79" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="93" end1="94" start2="81" end2="82" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="97" end1="98" start2="85" end2="87" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="102" end1="103" start2="91" end2="93" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="112" end1="113" start2="102" end2="103" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="114" end1="115" start2="104" end2="108" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="117" end1="117" start2="110" end2="111" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="128" end1="128" start2="122" end2="123" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="129" end1="129" start2="124" end2="125" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="130" end1="130" start2="126" end2="127" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="131" end1="132" start2="128" end2="128" changelist="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" />
+-        <range start1="133" end1="135" start2="129" end2="131" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="140" end1="142" start2="136" end2="138" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="143" end1="144" start2="139" end2="140" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="146" end1="147" start2="142" end2="143" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="149" end1="152" start2="145" end2="149" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="156" end1="159" start2="153" end2="155" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="160" end1="161" start2="156" end2="157" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="163" end1="164" start2="159" end2="160" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="172" end1="172" start2="168" end2="170" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="173" end1="174" start2="171" end2="226" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-      </ranges>
+-    </file>
+-    <file path="$PROJECT_DIR$/src/main/java/FileHandler.java">
+-      <ranges>
+-        <range start1="8" end1="9" start2="8" end2="9" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="15" end1="16" start2="15" end2="16" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+-        <range start1="42" end1="43" start2="42" end2="43" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-        <range start1="52" end1="52" start2="52" end2="72" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+-      </ranges>
+-    </file>
+-  </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 8
+ }</component>
+@@ -102,20 +37,21 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "codeWithMe.voiceChat.enabledByDefault": "false",
++    "extract.method.default.visibility": "private",
++    "git-widget-placeholder": "main",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CreateClassDialog.RecentsKey">
+       <recent name="" />
+@@ -130,7 +66,8 @@
+       <option name="presentableId" value="Default" />
+       <updated>1700312493877</updated>
+       <workItem from="1700312494921" duration="43434000" />
+-      <workItem from="1701027454536" duration="29963000" />
++      <workItem from="1701027454536" duration="9298000" />
++      <workItem from="1701196934067" duration="2418000" />
+     </task>
+     <task id="LOCAL-00001" summary="nye">
+       <option name="closed" value="true" />
+@@ -164,39 +101,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1701032147686</updated>
+     </task>
+-    <task id="LOCAL-00005" summary="Kan gemme medlemsopslyninger i csv filen">
+-      <option name="closed" value="true" />
+-      <created>1701036800278</created>
+-      <option name="number" value="00005" />
+-      <option name="presentableId" value="LOCAL-00005" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1701036800278</updated>
+-    </task>
+-    <task id="LOCAL-00006" summary="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer">
+-      <option name="closed" value="true" />
+-      <created>1701095842171</created>
+-      <option name="number" value="00006" />
+-      <option name="presentableId" value="LOCAL-00006" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1701095842171</updated>
+-    </task>
+-    <task id="LOCAL-00007" summary="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer">
+-      <option name="closed" value="true" />
+-      <created>1701095851915</created>
+-      <option name="number" value="00007" />
+-      <option name="presentableId" value="LOCAL-00007" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1701095851915</updated>
+-    </task>
+-    <task id="LOCAL-00008" summary="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer">
+-      <option name="closed" value="true" />
+-      <created>1701095933480</created>
+-      <option name="number" value="00008" />
+-      <option name="presentableId" value="LOCAL-00008" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1701095933480</updated>
+-    </task>
+-    <option name="localTasksCounter" value="9" />
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -216,11 +121,6 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="nye" />
+     <MESSAGE value="Kan gemme i csv fil" />
+-    <MESSAGE value="Kan gemme medlemsopslyninger i csv filen" />
+-    <MESSAGE value="Changes by xuanloclam" />
+-    <MESSAGE value="Changes by younesbenaddi" />
+-    <MESSAGE value="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer" />
+-    <MESSAGE value="csv fil" />
+-    <option name="LAST_COMMIT_MESSAGE" value="csv fil" />
++    <option name="LAST_COMMIT_MESSAGE" value="Kan gemme i csv fil" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\n  <component name=\"MavenProjectsManager\">\n    <option name=\"originalFiles\">\n      <list>\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_20\" default=\"true\" project-jdk-name=\"20\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/out\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 524b9c34f0841355a2b54be1f5b26f25857c7a52)
++++ b/.idea/misc.xml	(date 1701190375051)
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="MavenProjectsManager">
