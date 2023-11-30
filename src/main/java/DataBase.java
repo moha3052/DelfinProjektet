@@ -6,10 +6,24 @@ public class DataBase {
     private ArrayList<Resultater> resultaterList;
     private FileHandler fileHandler;
 
+    public DataBase(){
+        this.fileHandler = new FileHandler();
+        this.medlemsListe = new ArrayList<Medlem>();
+        this.resultaterList = new ArrayList<Resultater>();
+        loadMedlemmerFraCSV();
+    }
+
+    public DataBase(boolean loadmedlemmer){
+        this();
+        if (loadmedlemmer){
+            loadMedlemmerFraCSV();
+        }
+    }
 
     public void loadMedlemmerFraCSV(){
         this.medlemsListe = fileHandler.loadMedlemmer();
     }
+
 
     public ArrayList<Resultater> getResultater(){
         return resultaterList;
@@ -19,9 +33,9 @@ public class DataBase {
     public void printMedlemsList(){
         for (Medlem medlem :  medlemsListe) {
             System.out.println(medlem.toString());
-
         }
     }
+
     public void printResultater(){
         for(Resultater training : resultaterList){
             System.out.println(training.toString());
@@ -30,11 +44,6 @@ public class DataBase {
 
     public ArrayList<Medlem> getMedlemsListe(){
         return medlemsListe;
-    }
-
-    public DataBase(){
-        this.fileHandler = new FileHandler();
-        loadMedlemmerFraCSV();
     }
 
 
@@ -48,6 +57,8 @@ public class DataBase {
         return null;
     }
 
+
+
     public void opdaterMedlemIDatabase(Medlem updateretMedlem){
         for (int i = 0; i < medlemsListe.size(); i++) {
             if (medlemsListe.get(i).getIdNumber() == updateretMedlem.getIdNumber()){
@@ -56,16 +67,27 @@ public class DataBase {
         }
     }
 
+
     public void tilføjMedlemTilArray(Medlem medlem){
         medlemsListe.add(medlem);
     }
 
-    public void tilføjResultaterTilArray(Resultater training){
-        resultaterList.add(training);
+
+    public void tilføjResultaterTilArray(Resultater training) {
+        if (resultaterList != null) {
+            resultaterList.add(training);
+        } else {
+            System.out.println("Fejl: resultaterList er ikke initialiseret.");
+        }
     }
+
 
     public void gemMedlemlistTilCSV(){
         fileHandler.gemMedlemslisteTilCSV(medlemsListe);
+    }
+
+    public void gemResultattilCsv(){
+        fileHandler.gemResultaterICsv(resultaterList);
     }
 
 }

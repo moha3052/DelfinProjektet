@@ -4,22 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="29-11 17:00">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resultater.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Resultater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2023__17_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2023__17_52__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_11_2023__09_22__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_11_2023__09_22__Changes_.xml" afterDir="false" />
+    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="30-11 17:13">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datasource/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datasource/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datasource/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Medlem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medlem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datasource/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resultater.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Resultater.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Resultater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Resultater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
     </list>
     <list id="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" name="Changes by xuanloclam" comment="Changes by xuanloclam" />
     <list id="0409ed44-661a-4c55-bebf-ae112c13bbd3" name="Changes by younesbenaddi" comment="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer">
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datasource/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,22 +32,23 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/datasource/UserInterface.java">
+    <file path="$PROJECT_DIR$/src/main/java/UserInterface.java">
       <ranges>
-        <range start1="0" end1="0" start2="0" end2="4" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="3" end1="3" start2="7" end2="8" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="5" end1="10" start2="10" end2="11" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="12" end1="13" start2="13" end2="17" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="91" end1="91" start2="95" end2="101" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="92" end1="92" start2="102" end2="105" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="105" end1="106" start2="118" end2="122" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="116" end1="116" start2="132" end2="137" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="193" end1="194" start2="214" end2="215" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="250" end1="253" start2="271" end2="273" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="273" end1="273" start2="293" end2="295" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="291" end1="291" start2="313" end2="323" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="301" end1="301" start2="333" end2="369" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="302" end1="303" start2="370" end2="370" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
+        <range start1="9" end1="9" start2="9" end2="10" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="129" end1="130" start2="130" end2="131" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="160" end1="161" start2="161" end2="161" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="335" end1="337" start2="335" end2="338" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="338" end1="339" start2="339" end2="340" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="340" end1="344" start2="341" end2="351" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="346" end1="347" start2="353" end2="353" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="349" end1="351" start2="355" end2="358" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="352" end1="353" start2="359" end2="361" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="354" end1="355" start2="362" end2="364" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="356" end1="356" start2="365" end2="366" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="357" end1="358" start2="367" end2="369" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="359" end1="362" start2="370" end2="373" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="365" end1="365" start2="376" end2="378" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="366" end1="367" start2="379" end2="379" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
       </ranges>
     </file>
   </component>
@@ -84,10 +80,13 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="datasource.Main" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="DelfinProjektet" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -108,7 +107,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700312493877</updated>
       <workItem from="1700312494921" duration="43434000" />
-      <workItem from="1701027454536" duration="83302000" />
+      <workItem from="1701027454536" duration="95079000" />
     </task>
     <task id="LOCAL-00001" summary="nye">
       <option name="closed" value="true" />
@@ -222,7 +221,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701273663029</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="30-11 16:41">
+      <option name="closed" value="true" />
+      <created>1701358908072</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701358908072</updated>
+    </task>
+    <task id="LOCAL-00016" summary="30-11 17:13">
+      <option name="closed" value="true" />
+      <created>1701360831128</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701360831128</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +266,8 @@
     <MESSAGE value="Changes by xuanloclam" />
     <MESSAGE value="28-11 22:21" />
     <MESSAGE value="29-11 17:00" />
-    <option name="LAST_COMMIT_MESSAGE" value="29-11 17:00" />
+    <MESSAGE value="30-11 16:41" />
+    <MESSAGE value="30-11 17:13" />
+    <option name="LAST_COMMIT_MESSAGE" value="30-11 17:13" />
   </component>
 </project>

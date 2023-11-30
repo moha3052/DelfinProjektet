@@ -8,6 +8,7 @@ import java.util.Scanner;
         Scanner scanner = new Scanner(System.in);
         DataBase dataBase = new DataBase();
 
+
         public void StartProgram() {
 
             boolean keepRunning = true;
@@ -127,7 +128,7 @@ import java.util.Scanner;
         }
 
         public void registredisciplin(){
-            System.out.println("registre i forskellige disciplin, tid og dato");
+            System.out.println("Registre medlemmets resultat indenfor Øvelse, Datoer, Diciplin og Tid:");
             registreTid();
         }
 
@@ -158,7 +159,6 @@ import java.util.Scanner;
             do {
                 readString = scanner.nextLine();
                 if (readString.isEmpty()) {
-                    System.out.println("Ugyldigt input.");
                 }
             }
             while (readString.isEmpty());
@@ -333,36 +333,49 @@ import java.util.Scanner;
         }
 
 
-        public void registreTid(){
-            System.out.println("Hvilken medlem vil du registre");
+        public void registreTid() {
+            System.out.println();
+            System.out.println("Indtaste navn på det medlem du gerne vil give resultat:");
             String navn = readString();
-            String medlem = null;
+
             ArrayList<Medlem> medlemmer = dataBase.getMedlemsListe();
-            for(int i = 0;  i < medlemmer.size(); i++){
-                if(navn.equals(medlemmer.get(i).getFullName())){
-                    medlem = medlemmer.get(i).getFullName();
-                    System.out.println("medlemmet blev fundet");
+            if (medlemmer == null || medlemmer.isEmpty()) {
+                System.out.println("Ingen medlemmer at søge i.");
+                return;
+            }
+            Medlem medlemFundet = null;
+            for (Medlem medlem : medlemmer) {
+                if (navn.equals(medlem.getFullName())) {
+                    System.out.println();
+                    System.out.println("Medlemmet blev fundet: " + medlem.getFullName());
+                    medlemFundet = medlem;
                     break;
                 }
-
             }
 
-            if (medlem != null) {
-                System.out.println("træningsresultat eller ");
+            if (medlemFundet != null) {
+                System.out.println("_________________");
+                System.out.println("Træning eller stævne resultater:");
                 String type = readString();
-                System.out.println("Indsæt dato");
+                System.out.println();
+                System.out.println("Indtast dato:");
                 String dato = readString();
-                System.out.println("butterfly, crawl, rygcrawl og brystsvømning");
+                System.out.println();
+                System.out.println("Indtast diciplin indenfor (butterfly, crawl, rygcrawl og brystsvømning)");
                 String disciplin = readString();
+                System.out.println();
                 System.out.println("Indsæt tid (målt i minutter og sekundere)");
-                double tid = readDouble();
+                String tid = readString();
+                System.out.println();
 
-                dataBase.tilføjResultaterTilArray(new Resultater(type, dato, disciplin, medlem,tid));
-
-            }else {
+                dataBase.tilføjResultaterTilArray(new Resultater(type, dato, disciplin, medlemFundet.getFullName(), tid));
+                dataBase.gemResultattilCsv();
+            } else {
                 System.out.println("Medlem blev ikke fundet");
             }
         }
+
+
 
 
     }

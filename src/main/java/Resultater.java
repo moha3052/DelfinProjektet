@@ -3,9 +3,9 @@ public class Resultater {
     private String dato;
     private String disciplin;
     private String medlem;
-    private double tid;
+    private String tid;
 
-    public Resultater(String type, String dato, String disciplin, String medlem, double tid){
+    public Resultater(String type, String dato, String disciplin, String medlem, String tid){
         this.type = type;
         this.dato = dato;
         this.disciplin = disciplin;
@@ -25,7 +25,7 @@ public class Resultater {
         this.type = type;
     }
 
-    public void setTid(int tid){
+    public void setTid(String tid){
         this.tid = tid;
     }
 
@@ -47,7 +47,7 @@ public class Resultater {
         return medlem;
     }
 
-    public double getTid(){
+    public String getTid(){
         return tid;
     }
 
@@ -58,9 +58,9 @@ public class Resultater {
 
     @Override
     public String toString() {
-        return "Type" + type +
-                "Dato" + dato +
-                "Tid" + tid +
-                "diciplin" + disciplin;
+        return "Type:" + " " + type + " "
+                + "Dato:" + " " + dato + " "
+                + "Tid:" + " " + tid + " " +
+                "Diciplin:" + " " + disciplin  + '\n';
     }
 }

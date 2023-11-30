@@ -38,7 +38,7 @@ public class FileHandler {
                 String dato = parts[1];
                 String diciplin = parts[2];
                 String navn = parts[3];
-                double tid = Double.parseDouble(parts[1]);
+                String tid = parts[4];
                 Resultater training = new Resultater(type,dato,diciplin,navn,tid);
                 resultater.add(training);
             }
