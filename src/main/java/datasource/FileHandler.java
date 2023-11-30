@@ -1,3 +1,5 @@
+package datasource;
+
 import java.io.*;
 
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ public class FileHandler {
         ArrayList<Medlem> visAlleMedlemmer = new ArrayList<>();
         try(Scanner scanner = new Scanner(new File("medlemmer.csv"))){
 
-            while( scanner.hasNextLine()){
+            while(scanner.hasNextLine()){
                 String[] parts = scanner.nextLine().split(";");
                 String fullName = parts[0];
                 String birthdate = parts[1];
@@ -27,6 +29,37 @@ public class FileHandler {
             e.printStackTrace();
         }
         return visAlleMedlemmer;
+    }
+
+    public ArrayList<Resultater> loadResultater() {
+        ArrayList<Resultater> resultater = new ArrayList<>();
+        try (Scanner input = new Scanner(new File("Resultater.csv"))) {
+            while (input.hasNextLine()) {
+                String[] parts = input.nextLine().split(";");
+                String type = parts[0];
+                String dato = parts[1];
+                String diciplin = parts[2];
+                String navn = parts[3];
+                double tid = Double.parseDouble(parts[1]);
+                Resultater training = new Resultater(type,dato,diciplin,navn,tid);
+                resultater.add(training);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return resultater;
+    }
+
+    public void gemResultaterICsv(ArrayList<Resultater> trainingArrayList) {
+        try (PrintStream output = new PrintStream(new File("Resultater.csv"));){
+                for (Resultater training : trainingArrayList) {
+                    output.println(training.getType() + ";" + training.getDato() +
+                            ";" + training.getDisciplin() + ";" + training.getmedlem() +
+                            ";" + training.getTid());
+                }
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+        }
     }
 
     public void gemMedlemslisteTilCSV(ArrayList<Medlem> medlemsListe) {

@@ -1,16 +1,20 @@
+package datasource;
+
+import datasource.DataBase;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class UserInterface {
+    public class UserInterface {
+        Scanner scanner = new Scanner(System.in);
+        DataBase dataBase = new DataBase();
 
         public void StartProgram() {
 
-
-        Scanner scanner = new Scanner(System.in);
-        DataBase dataBase = new DataBase();
-        boolean keepRunning = true;
+            boolean keepRunning = true;
 
             while (keepRunning) {
                 printMenu();
@@ -89,7 +93,16 @@ public class UserInterface {
                 int trænerChoice = scanner.nextInt();
 
                 switch (trænerChoice){
+                    case 1:
+                        registredisciplin();
+                        break;
+                    case 2:
+
+
                     case 3:
+                       visResultater();
+                       break;
+                    case 4:
                         trænerRunning = false;
                         break;
                     default:
@@ -103,7 +116,10 @@ public class UserInterface {
         public void printTræner() {
             System.out.println("Træner: ");
             System.out.println("_________________");
-            System.out.println("3. Tilbage til menu");
+            System.out.println("1. Registrere resultater");
+            System.out.println("2. Redigere i resultaterne");
+            System.out.println("3. vis alle resultater");
+            System.out.println("4. Tilbage til menu");
             System.out.println();
         }
 
@@ -112,6 +128,11 @@ public class UserInterface {
             System.out.println("_________________");
             System.out.println("3. Tilbage til menu");
             System.out.println();
+        }
+
+        public void registredisciplin(){
+            System.out.println("registre i forskellige disciplin, tid og dato");
+            registreTid();
         }
 
 
@@ -191,7 +212,7 @@ public class UserInterface {
                     LocalDate currentDate = LocalDate.now();
                     int age = Period.between(birthday, currentDate).getYears();
 
-                    if (age < 18) {
+                    if (age < 17) {
                         System.out.println(fullName + " er " + age + " år gammel " + "og er derfor juniorsvømmer.");
                         validDate = true;
                     } else if (age >= 18 && age <= 59) {
@@ -248,9 +269,8 @@ public class UserInterface {
             System.out.println(fullName + " " + "er blevet registreret i klubben");
             System.out.println();
             int idNumber = dataBase.getMedlemsListe().size() + 1;
-            System.out.println("Dette " + idNumber + " er" + " er medlemmets ID nummer.");
-            dataBase.tilføjMedlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
-            dataBase.gemOplysningerICSV(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer);
+            System.out.println("Dette " + idNumber + "er medlemmets ID nummer.");
+            dataBase.tilføjMedlemTilArray(new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer));
         }
 
         private void visMedlemmer() {
@@ -271,6 +291,8 @@ public class UserInterface {
                 System.out.println("1. Navn");
                 System.out.println("2. Fødselsdato");
                 System.out.println("3. Email");
+                System.out.println("4. Indtast nyt mobilnummer");
+                System.out.println("5. Er medlemmets aktivitetsstatus ændret?");
 
                 int valg = readInt();
                 switch (valg) {
@@ -289,6 +311,16 @@ public class UserInterface {
                         String nytEmail = readString();
                         medlem.setEmail(nytEmail);
                         break;
+                    case 4:
+                        System.out.println("Indtast nyt mobilnummer");
+                        int nytPhonenumber = readInt();
+                        medlem.setPhoneNumber(nytPhonenumber);
+                        break;
+                    case 5:
+                        System.out.println("Er medlemmets aktivitetsstatus ændret?");
+                        String newCompetitionSwimmer = readString();
+                        medlem.setCompetitionSwimmer(newCompetitionSwimmer);
+                        break;
                     default:
                         System.out.println("Ugyldigt valg.");
                 }
@@ -297,6 +329,42 @@ public class UserInterface {
                 System.out.println("Medlemmet er opdateret.");
             } else {
                 System.out.println("Medlem med ID " + id + " blev ikke fundet.");
+            }
+        }
+
+        public void visResultater(){
+            dataBase.printResultater();
+        }
+
+
+        public void registreTid(){
+            System.out.println("Hvilken medlem vil du registre");
+            String navn = readString();
+            String medlem = null;
+            ArrayList<Medlem> medlemmer = dataBase.getMedlemsListe();
+            for(int i = 0;  i < medlemmer.size(); i++){
+                if(navn.equals(medlemmer.get(i).getFullName())){
+                    medlem = medlemmer.get(i).getFullName();
+                    System.out.println("medlemmet blev fundet");
+                    break;
+                }
+
+            }
+
+            if (medlem != null) {
+                System.out.println("træningsresultat eller ");
+                String type = readString();
+                System.out.println("Indsæt dato");
+                String dato = readString();
+                System.out.println("butterfly, crawl, rygcrawl og brystsvømning");
+                String disciplin = readString();
+                System.out.println("Indsæt tid (målt i minutter og sekundere)");
+                double tid = readDouble();
+
+                dataBase.tilføjResultaterTilArray(new Resultater(type, dato, disciplin, medlem,tid));
+
+            }else {
+                System.out.println("Medlem blev ikke fundet");
             }
         }
 

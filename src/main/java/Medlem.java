@@ -24,9 +24,6 @@ public class Medlem {
        this.isCompetitionSwimmer = isCompetitionSwimmer;
     }
 
-    public Medlem(int medlemsId, String datum) {
-    }
-
     public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
