@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="30-11 17:13">
+    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="30-11 23:42">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resultater.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Resultater.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Resultater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Resultater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/medlemmer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/medlemmer.csv" afterDir="false" />
     </list>
     <list id="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" name="Changes by xuanloclam" comment="Changes by xuanloclam" />
     <list id="0409ed44-661a-4c55-bebf-ae112c13bbd3" name="Changes by younesbenaddi" comment="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer">
@@ -30,27 +27,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/UserInterface.java">
-      <ranges>
-        <range start1="9" end1="9" start2="9" end2="10" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="129" end1="130" start2="130" end2="131" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="160" end1="161" start2="161" end2="161" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="335" end1="337" start2="335" end2="338" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="338" end1="339" start2="339" end2="340" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="340" end1="344" start2="341" end2="351" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="346" end1="347" start2="353" end2="353" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="349" end1="351" start2="355" end2="358" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="352" end1="353" start2="359" end2="361" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="354" end1="355" start2="362" end2="364" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="356" end1="356" start2="365" end2="366" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="357" end1="358" start2="367" end2="369" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="359" end1="362" start2="370" end2="373" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="365" end1="365" start2="376" end2="378" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="366" end1="367" start2="379" end2="379" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
-      </ranges>
-    </file>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -107,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700312493877</updated>
       <workItem from="1700312494921" duration="43434000" />
-      <workItem from="1701027454536" duration="95079000" />
+      <workItem from="1701027454536" duration="96923000" />
     </task>
     <task id="LOCAL-00001" summary="nye">
       <option name="closed" value="true" />
@@ -237,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701360831128</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="30-11 23:42">
+      <option name="closed" value="true" />
+      <created>1701384148488</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701384148488</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +252,7 @@
     <MESSAGE value="29-11 17:00" />
     <MESSAGE value="30-11 16:41" />
     <MESSAGE value="30-11 17:13" />
-    <option name="LAST_COMMIT_MESSAGE" value="30-11 17:13" />
+    <MESSAGE value="30-11 23:42" />
+    <option name="LAST_COMMIT_MESSAGE" value="30-11 23:42" />
   </component>
 </project>
