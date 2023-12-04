@@ -20,7 +20,8 @@ public class FileHandler {
                 int phoneNumber = Integer.parseInt(parts[5].trim());
                 String adress = parts[6];
                 String isCompetitionSwimmer = parts[7];
-                Medlem medlem = new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, isCompetitionSwimmer);
+                boolean isAktiv =  Boolean.parseBoolean(parts[8]);
+                Medlem medlem = new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, isCompetitionSwimmer, isAktiv);
                 visAlleMedlemmer.add(medlem);
             }
         } catch (FileNotFoundException e) {
@@ -38,8 +39,9 @@ public class FileHandler {
                 String dato = parts[1];
                 String diciplin = parts[2];
                 String navn = parts[3];
-                String tid = parts[4];
-                Resultater training = new Resultater(type,dato,diciplin,navn,tid);
+                int medlemsId = Integer.parseInt(parts[4].trim());;
+                String tid = parts[5];
+                Resultater training = new Resultater(type,dato,diciplin,navn,medlemsId,tid);
                 resultater.add(training);
             }
         } catch (FileNotFoundException e) {
@@ -53,7 +55,7 @@ public class FileHandler {
                 for (Resultater training : trainingArrayList) {
                     output.println(training.getType() + ";" + training.getDato() +
                             ";" + training.getDisciplin() + ";" + training.getmedlem() +
-                            ";" + training.getTid());
+                            ";" + training.getMedlemsId() + ";" + training.getTid());
                 }
             }catch(FileNotFoundException e){
                 e.printStackTrace();
@@ -71,6 +73,10 @@ public class FileHandler {
             e.printStackTrace();
         }
     }
+
+
+
+
 }
 
 

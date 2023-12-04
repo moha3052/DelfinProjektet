@@ -10,6 +10,7 @@ public class DataBase {
         this.fileHandler = new FileHandler();
         this.medlemsListe = new ArrayList<Medlem>();
         this.resultaterList = new ArrayList<Resultater>();
+        loadResultater();
         loadMedlemmerFraCSV();
     }
 
@@ -22,6 +23,10 @@ public class DataBase {
 
     public void loadMedlemmerFraCSV(){
         this.medlemsListe = fileHandler.loadMedlemmer();
+    }
+
+    public void loadResultater(){
+        this.resultaterList = fileHandler.loadResultater();
     }
 
 
@@ -88,6 +93,24 @@ public class DataBase {
 
     public void gemResultattilCsv(){
         fileHandler.gemResultaterICsv(resultaterList);
+    }
+
+    public void opdaterResultatIDatabase(Resultater updateretResultat){
+        for (int i = 0; i < resultaterList.size(); i++) {
+            if (medlemsListe.get(i).getFullName() == updateretResultat.getmedlem()){
+                resultaterList.set(i, updateretResultat);
+            }
+        }
+    }
+
+    public Medlem findMedlemByName(String navn) {
+        for(Medlem medlem: medlemsListe){
+            if(navn == medlem.getFullName()){
+                return medlem;
+            }
+        }
+        System.out.println("kunne ikke finde medlemmets navn");
+        return null;
     }
 
 }

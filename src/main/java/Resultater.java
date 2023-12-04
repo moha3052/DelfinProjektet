@@ -3,15 +3,21 @@ public class Resultater {
     private String dato;
     private String disciplin;
     private String medlem;
+    private int medlemsId;
     private String tid;
 
-    public Resultater(String type, String dato, String disciplin, String medlem, String tid){
+    public Resultater(String type, String dato, String disciplin, String medlem, int medlemsId, String tid){
         this.type = type;
         this.dato = dato;
         this.disciplin = disciplin;
         this.medlem = medlem;
+        this.medlemsId = medlemsId;
         this.tid = tid;
 
+    }
+
+    public void setMedlemsId(int medlemsId){
+        this.medlemsId = medlemsId;
     }
 
     public void setDato(String dato){
@@ -53,6 +59,10 @@ public class Resultater {
 
     public String getDisciplin(){
         return disciplin;
+    }
+
+    public int getMedlemsId(){
+        return medlemsId;
     }
 
 

@@ -9,6 +9,8 @@ import java.util.Scanner;
         DataBase dataBase = new DataBase();
 
 
+
+
         public void StartProgram() {
 
             boolean keepRunning = true;
@@ -45,6 +47,7 @@ import java.util.Scanner;
                 printFormand();
                 int formandChoice = scanner.nextInt();
 
+
                 switch (formandChoice){
                     case 1:
                         opretMedlem();
@@ -54,6 +57,7 @@ import java.util.Scanner;
                         break;
                     case 3:
                         redigerMedlem();
+                        break;
                     case 4:
                         formandRunning = false;
                         break;
@@ -94,8 +98,8 @@ import java.util.Scanner;
                         registredisciplin();
                         break;
                     case 2:
-
-
+                        redigerResultat();
+                        break;
                     case 3:
                        visResultater();
                        break;
@@ -111,6 +115,7 @@ import java.util.Scanner;
 
 
         public void printTræner() {
+            System.out.println();
             System.out.println("Træner: ");
             System.out.println("_________________");
             System.out.println("1. Registrere resultater");
@@ -121,6 +126,7 @@ import java.util.Scanner;
         }
 
         public void printKassere() {
+            System.out.println();
             System.out.println("Kassere: ");
             System.out.println("_________________");
             System.out.println("3. Tilbage til menu");
@@ -159,6 +165,7 @@ import java.util.Scanner;
             do {
                 readString = scanner.nextLine();
                 if (readString.isEmpty()) {
+                    System.out.println("prøv igen");
                 }
             }
             while (readString.isEmpty());
@@ -185,6 +192,10 @@ import java.util.Scanner;
             result = scanner.nextDouble();
             scanner.nextLine();
             return result;
+        }
+
+        public static boolean isValidEmail(String email) {
+            return email.contains("@") && email.contains(".");
         }
 
         private void opretMedlem() {
@@ -238,8 +249,18 @@ import java.util.Scanner;
                 System.out.println("_________________");
             }
 
-            System.out.println("E-mail");
-            String email = readString();
+            String email;
+            while (true) {
+                System.out.println("E-mail");
+                email = scanner.nextLine();
+
+                if (isValidEmail(email)) {
+                    break;
+                } else {
+                    System.out.println("Ugyldig e-mail, prøv igen.");
+                }
+            }
+
             System.out.println("_________________");
 
             System.out.println("Mobilnummer");
@@ -262,11 +283,24 @@ import java.util.Scanner;
             } else {
                 System.out.println("Ugyldigt svar. Indtast enten 'ja' eller 'nej'.");
             }
+
+            System.out.println("Er medlemmet aktiv eller passiv?");
+            boolean isAktiv = scanner.hasNextBoolean();
+            if (true){
+                System.out.println("medlemmet er aktiv");
+            } else if (false){
+                System.out.println("medlemmet er passiv");
+            } else {
+                System.out.println("Ugyldigt svar. Indtast enten 'aktiv' eller 'passiv'.");
+            }
+
+            System.out.println();
             System.out.println(fullName + " " + "er blevet registreret i klubben");
             System.out.println();
             int idNumber = dataBase.getMedlemsListe().size() + 1;
             System.out.println("Dette " + idNumber + "er medlemmets ID nummer.");
-            dataBase.tilføjMedlemTilArray(new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer));
+            System.out.println();
+            dataBase.tilføjMedlemTilArray(new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer, isAktiv));
         }
 
         private void visMedlemmer() {
@@ -334,9 +368,12 @@ import java.util.Scanner;
 
 
         public void registreTid() {
+            visMedlemmer();
             System.out.println();
             System.out.println("Indtaste navn på det medlem du gerne vil give resultat:");
+            scanner.nextLine();
             String navn = readString();
+
 
             ArrayList<Medlem> medlemmer = dataBase.getMedlemsListe();
             if (medlemmer == null || medlemmer.isEmpty()) {
@@ -352,27 +389,130 @@ import java.util.Scanner;
                     break;
                 }
             }
+            System.out.println();
+            System.out.println();
+            int medlemsId = readInt();
+            System.out.println();
 
             if (medlemFundet != null) {
                 System.out.println("_________________");
                 System.out.println("Træning eller stævne resultater:");
-                String type = readString();
+                String type = "";
+                while (!type.equals("træning") && !type.equals("stævne")) {
+                    System.out.println("Indtast 'træning' eller 'stævne':");
+                    type = scanner.nextLine().toLowerCase();
+
+                    if (type.equals("træning")) {
+                        System.out.println("Du har valgt træning.");
+                    } else if (type.equals("stævne")) {
+                        System.out.println("Du har valgt stævne.");
+                    } else {
+                        System.out.println("Ugyldigt valg, prøv igen.");
+                    }
+                }
+
                 System.out.println();
                 System.out.println("Indtast dato:");
                 String dato = readString();
                 System.out.println();
+
                 System.out.println("Indtast diciplin indenfor (butterfly, crawl, rygcrawl og brystsvømning)");
-                String disciplin = readString();
+                String disciplin = "";
+
+                while(!disciplin.equals("butterfly") && !disciplin.equals("crawl") && !disciplin.equals("rygcrawl") &&
+                !disciplin.equals("brystsvømning")){
+                    System.out.println("Indtast diciplin indenfor (butterfly, crawl, rygcrawl og brystsvømning)");
+                    disciplin = scanner.nextLine().toLowerCase();
+
+                    if(disciplin.equals("butterfly")){
+                        System.out.println("Du har valgt butterfly.");
+                    }else if (disciplin.equals("crawl")){
+                        System.out.println("Du har valgt crawl.");
+                    } else if (disciplin.equals("rygcrawl")){
+                        System.out.println("Du har valgt rygcrawl.");
+                    } else if (disciplin.equals("brystsvømning")){
+                        System.out.println("Du har valgt brystsvømning.");
+                    } else {
+                        System.out.println("Ugyldigt valg, prøv igen.");
+                    }
+                }
+
+
                 System.out.println();
                 System.out.println("Indsæt tid (målt i minutter og sekundere)");
                 String tid = readString();
                 System.out.println();
 
-                dataBase.tilføjResultaterTilArray(new Resultater(type, dato, disciplin, medlemFundet.getFullName(), tid));
+                dataBase.tilføjResultaterTilArray(new Resultater(type, dato, disciplin, medlemFundet.getFullName(), medlemsId, tid));
                 dataBase.gemResultattilCsv();
             } else {
                 System.out.println("Medlem blev ikke fundet");
             }
+        }
+
+        public void redigerResultat() {
+            System.out.println("Indtast medlemmets navn:");
+            String navn = readString();
+            Resultater resultater = findResultatPåNavn(navn);
+
+            if (resultater != null) {
+                System.out.println("Vælg hvad du vil redigere:");
+                System.out.println("1. Øvelse (Træning eller stævne) ");
+                System.out.println("2. Dato");
+                System.out.println("3. diciplin indenfor (butterfly, crawl, rygcrawl og brystsvømning)");
+                System.out.println("4. tid");
+
+
+                int valgMuligheder = readInt();
+                switch (valgMuligheder) {
+                    case 1:
+                        System.out.println("Indtast ny øvelse:");
+                        String nyØvelse = readString();
+                        resultater.setType(nyØvelse);
+                        break;
+                    case 2:
+                        System.out.println("Indtast ny dato");
+                        String nytDato = readString();
+                        resultater.setDato(nytDato);
+                        break;
+                    case 3:
+                        System.out.println("Indtast ny diciplin indenfor (butterfly, crawl, rygcrawl og brystsvømning)");
+                        String nytDiciplin = readString();
+                        resultater.setDisciplin(nytDiciplin);
+                        break;
+                    case 4:
+                        System.out.println("Indtast ny tid");
+                        String nytTid = readString();
+                        resultater.setTid(nytTid);
+                        break;
+                    default:
+                        System.out.println("Ugyldigt valg.");
+                }
+                dataBase.opdaterResultatIDatabase(resultater);
+                System.out.println();
+                System.out.println("Resultaterne er opdateret.");
+            } else {
+                System.out.println("Medlem: " + navn + " blev ikke fundet.");
+            }
+        }
+
+
+        public Resultater findResultatPåNavn(String navn){
+            ArrayList<Resultater> midleretideResultat = new ArrayList<>();
+
+            for(Resultater resultat : dataBase.getResultater()){
+                if(resultat.getmedlem().equals(navn)){
+                    midleretideResultat.add(resultat);
+                }
+            }
+            System.out.println("hvilket resultat vil du tjekke");
+            for(int i = 0; i < midleretideResultat.size(); i++){
+                System.out.println("#" + (i+1) + midleretideResultat.get(i).toString());
+            }
+            System.out.println("indtast nummeret på resultatet du vil ændre");
+            int numberInList = scanner.nextInt();
+
+            return midleretideResultat.get(numberInList);
         }
 
 

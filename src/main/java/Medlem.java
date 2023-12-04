@@ -11,9 +11,11 @@ public class Medlem {
     private String adress;
     private String isCompetitionSwimmer;
 
+    private boolean isAktiv;
 
 
-    public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer) {
+
+    public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer, boolean isAktiv) {
         this.birthdate = birthdate;
         this.fullName = fullName;
         this.gender = gender;
@@ -22,6 +24,11 @@ public class Medlem {
         this.phoneNumber = phoneNumber;
         this.adress = adress;
        this.isCompetitionSwimmer = isCompetitionSwimmer;
+       this.isAktiv = isAktiv;
+    }
+
+    public void setisaktiv(boolean isAktiv){
+        this.isAktiv = isAktiv;
     }
 
     public void setBirthdate(String birthdate) {
@@ -88,6 +95,10 @@ public class Medlem {
 
     public String getCompetitionSwimmer() {
         return isCompetitionSwimmer;
+    }
+
+    public boolean getisAktiv(){
+        return isAktiv;
     }
 
     @Override
