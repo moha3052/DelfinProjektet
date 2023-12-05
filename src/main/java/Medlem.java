@@ -10,12 +10,11 @@ public class Medlem {
     private int phoneNumber;
     private String adress;
     private String isCompetitionSwimmer;
-
     private boolean isAktiv;
 
 
-
-    public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer, boolean isAktiv) {
+    // Denne konstruktør bliver brugt til at oprette et nyt medlem.
+    public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer) {
         this.birthdate = birthdate;
         this.fullName = fullName;
         this.gender = gender;
@@ -24,7 +23,20 @@ public class Medlem {
         this.phoneNumber = phoneNumber;
         this.adress = adress;
        this.isCompetitionSwimmer = isCompetitionSwimmer;
-       this.isAktiv = isAktiv;
+       this.isAktiv = true;
+    }
+
+    // Denne konstruktør bliver brugt til at læse fra csv filen.
+    public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer, boolean isAktiv) {
+        this.birthdate = birthdate;
+        this.fullName = fullName;
+        this.gender = gender;
+        this.idNumber = idNumber;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.adress = adress;
+        this.isCompetitionSwimmer = isCompetitionSwimmer;
+        this.isAktiv = isAktiv;
     }
 
     public void setisaktiv(boolean isAktiv){
@@ -104,13 +116,14 @@ public class Medlem {
     @Override
     public String toString() {
         return "Medlem: " +
-                " FullName = " + fullName + " " +
-                " Birthdate = " +  birthdate + " " +
-                " Gender = " + gender + " " +
-                " IdNumber = " + idNumber + " " +
-                " Email = " + email + " " +
-                " +45 = " + phoneNumber + " " +
-                " Adress = " + adress + " " +
-                " IsCompetitionSwimmer = " + isCompetitionSwimmer + '\n';
+                "birthdate: " + birthdate + " " +
+                " fullName: " + fullName + " " +
+                " gender: " + gender + " "+
+                " idNumber: " + idNumber + " " +
+                " email: " + email + " " +
+                " phoneNumber: " + phoneNumber + " " +
+                " adress: " + adress + " " +
+                " CompetitionSwimmer: " + isCompetitionSwimmer + " " +
+                " Aktiv: " + isAktiv + '\n';
     }
 }

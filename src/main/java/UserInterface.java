@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     DataBase dataBase = new DataBase();
+    Kasseren kasseren = new Kasseren();
 
 
     public void StartProgram() {
@@ -22,7 +23,7 @@ public class UserInterface {
                         handleFormand();
                         break;
                     case 2:
-                        handleKassere();
+                        kasseren.handleKassere();
                         break;
                     case 3:
                         handletræner();
@@ -72,23 +73,7 @@ public class UserInterface {
         }
     }
 
-    private void handleKassere() {
-        boolean kassereRunning = true;
 
-        while (kassereRunning) {
-            printKassere();
-            int kassereChoice = scanner.nextInt();
-
-            switch (kassereChoice) {
-                case 3:
-                    kassereRunning = false;
-                    break;
-                default:
-                    System.out.println("Ugyldigt valg. Prøv igen.");
-                    break;
-            }
-        }
-    }
 
     private void handletræner() {
         boolean trænerRunning = true;
@@ -129,13 +114,7 @@ public class UserInterface {
         System.out.println();
     }
 
-    public void printKassere() {
-        System.out.println();
-        System.out.println("Kassere: ");
-        System.out.println("_________________");
-        System.out.println("3. Tilbage til menu");
-        System.out.println();
-    }
+
 
     public void registredisciplin() {
         System.out.println("Registre medlemmets resultat indenfor Øvelse, Datoer, Diciplin og Tid:");
@@ -195,6 +174,24 @@ public class UserInterface {
         result = scanner.nextDouble();
         scanner.nextLine();
         return result;
+    }
+
+    public boolean readBoolean() {
+        while (true) {
+            System.out.print("Indtast 'ja' eller 'nej': ");
+            String input = scanner.nextLine().trim().toLowerCase();
+
+
+            if (input.equals("ja")) {
+                System.out.println("Du svarede 'ja'.");
+                return true;
+            } else if (input.equals("nej")) {
+                System.out.println("Du svarede 'nej'.");
+                return false;
+            } else {
+                System.out.println("Ugyldigt input. Prøv igen.");
+            }
+        }
     }
 
     public static boolean isValidEmail(String email) {
@@ -287,27 +284,17 @@ public class UserInterface {
             System.out.println("Ugyldigt svar. Indtast enten 'ja' eller 'nej'.");
         }
 
-        System.out.println("Er medlemmet aktiv eller passiv?");
-        boolean isAktiv = scanner.hasNextBoolean();
-        if (true) {
-            System.out.println("medlemmet er aktiv");
-        } else if (false) {
-            System.out.println("medlemmet er passiv");
-        } else {
-            System.out.println("Ugyldigt svar. Indtast enten 'aktiv' eller 'passiv'.");
-        }
-
         System.out.println();
         System.out.println(fullName + " " + "er blevet registreret i klubben");
         System.out.println();
         int idNumber = dataBase.getMedlemsListe().size() + 1;
-        System.out.println("Dette " + idNumber + "er medlemmets ID nummer.");
+        System.out.println("Medlemmets ID nummer." + idNumber );
         System.out.println();
-        dataBase.tilføjMedlemTilArray(new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer, isAktiv));
+        dataBase.tilføjMedlemTilArray(new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer));
         dataBase.gemMedlemlistTilCSV();
     }
 
-    private void visMedlemmer() {
+    public void visMedlemmer() {
         System.out.println("Her er medlemmerne i delfinsvømmeklubben: ");
         System.out.println();
         System.out.println("_________________");
@@ -327,6 +314,7 @@ public class UserInterface {
             System.out.println("3. Email");
             System.out.println("4. Indtast nyt mobilnummer");
             System.out.println("5. Er medlemmets aktivitetsstatus ændret?");
+            System.out.println("6. Er medlemmets stadigvæk aktiv?");
 
             int valg = readInt();
             switch (valg) {
@@ -355,12 +343,18 @@ public class UserInterface {
                     String newCompetitionSwimmer = readString();
                     medlem.setCompetitionSwimmer(newCompetitionSwimmer);
                     break;
+
+                case 6:
+                    System.out.println("Er medlemmets stadigvæk aktiv?");
+                    boolean passiv = readBoolean();
+                    medlem.setisaktiv(passiv);
                 default:
                     System.out.println("Ugyldigt valg.");
             }
             dataBase.opdaterMedlemIDatabase(medlem);
             System.out.println();
             System.out.println("Medlemmet er opdateret.");
+            System.out.println();
         } else {
             System.out.println("Medlem med ID " + id + " blev ikke fundet.");
         }
@@ -393,14 +387,9 @@ public class UserInterface {
                 break;
             }
         }
-        System.out.println();
-        System.out.println();
         int medlemsId = readInt();
-        System.out.println();
 
         if (medlemFundet != null) {
-            System.out.println("_________________");
-            System.out.println("Træning eller stævne resultater:");
             String type = "";
             while (!type.equals("træning") && !type.equals("stævne")) {
                 System.out.println("Indtast 'træning' eller 'stævne':");
@@ -425,7 +414,6 @@ public class UserInterface {
 
             while (!disciplin.equals("butterfly") && !disciplin.equals("crawl") && !disciplin.equals("rygcrawl") &&
                     !disciplin.equals("brystsvømning")) {
-                System.out.println("Indtast diciplin indenfor (butterfly, crawl, rygcrawl og brystsvømning)");
                 disciplin = scanner.nextLine().toLowerCase();
 
                 if (disciplin.equals("butterfly")) {
@@ -448,6 +436,7 @@ public class UserInterface {
             System.out.println();
 
             dataBase.tilføjResultaterTilArray(new Resultater(type, dato, disciplin, medlemFundet.getFullName(), medlemsId, tid));
+            System.out.println("Resultaterne er blevet oprettet.");
             dataBase.gemResultattilCsv();
         } else {
             System.out.println("Medlem blev ikke fundet");

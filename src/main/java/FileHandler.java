@@ -67,7 +67,8 @@ public class FileHandler {
             for (Medlem medlem : medlemsListe) {
                 output.println(medlem.getFullName() + ";" + medlem.getBirthdate() + ";"
                         + medlem.getGender() + ";" + medlem.getIdNumber() + ";" + medlem.getEmail() +
-                        ";" + medlem.getPhoneNumber() + ";" + medlem.getAdress() + ";" + medlem.getCompetitionSwimmer());
+                        ";" + medlem.getPhoneNumber() + ";" + medlem.getAdress() + ";" + medlem.getCompetitionSwimmer()
+                        + ";" + medlem.getisAktiv());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

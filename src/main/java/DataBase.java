@@ -29,6 +29,10 @@ public class DataBase {
         this.resultaterList = fileHandler.loadResultater();
     }
 
+    public ArrayList<Medlem> getMedlemmer(){
+        return medlemsListe;
+    }
+
 
     public ArrayList<Resultater> getResultater(){
         return resultaterList;

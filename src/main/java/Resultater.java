@@ -69,8 +69,8 @@ public class Resultater {
     @Override
     public String toString() {
         return "Type:" + " " + type + " "
-                + "Dato:" + " " + dato + " "
-                + "Tid:" + " " + tid + " " +
-                "Diciplin:" + " " + disciplin  + '\n';
+                + " Dato:" + " " + dato + " "
+                + " Tid:" + " " + tid + " " +
+                " Diciplin:" + " " + disciplin  + '\n';
     }
 }
