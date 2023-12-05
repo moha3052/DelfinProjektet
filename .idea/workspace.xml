@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="04-12-2023">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resultater.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Resultater.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/medlemmer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/medlemmer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Medlem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medlem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Resultater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Resultater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
-    </list>
+    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="05-12-2023 kl 15:47" />
     <list id="d66710bf-1d7f-4782-a858-eb8e9d74dcb8" name="Changes by xuanloclam" comment="Changes by xuanloclam" />
-    <list id="0409ed44-661a-4c55-bebf-ae112c13bbd3" name="Changes by younesbenaddi" comment="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer">
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Medlem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medlem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
-    </list>
+    <list id="0409ed44-661a-4c55-bebf-ae112c13bbd3" name="Changes by younesbenaddi" comment="05-12-2023 kl 15:50" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,48 +35,6 @@
         <option name="url" value="https://github.com/moha3052/DelfinProjektet.git" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/Medlem.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="4" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
-        <range start1="12" end1="13" start2="13" end2="13" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="16" end1="18" start2="16" end2="18" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="26" end1="27" start2="26" end2="27" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="28" end1="28" start2="28" end2="41" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="65" end1="66" start2="78" end2="78" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
-        <range start1="106" end1="114" start2="118" end2="127" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/UserInterface.java">
-      <ranges>
-        <range start1="9" end1="9" start2="9" end2="10" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="24" end1="25" start2="25" end2="26" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="74" end1="76" start2="75" end2="75" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="77" end1="91" start2="76" end2="76" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="131" end1="138" start2="116" end2="117" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="198" end1="198" start2="177" end2="195" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="224" end1="225" start2="221" end2="222" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
-        <range start1="289" end1="299" start2="286" end2="286" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="303" end1="304" start2="290" end2="291" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="305" end1="306" start2="292" end2="293" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="309" end1="310" start2="296" end2="297" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="329" end1="329" start2="316" end2="317" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="357" end1="357" start2="345" end2="350" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="363" end1="363" start2="356" end2="357" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="395" end1="397" start2="389" end2="389" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="398" end1="399" start2="390" end2="390" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="401" end1="403" start2="392" end2="392" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="427" end1="428" start2="416" end2="416" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="450" end1="450" start2="438" end2="439" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/DataBase.java">
-      <ranges>
-        <range start1="30" end1="30" start2="30" end2="34" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="111" end1="112" start2="115" end2="116" changelist="0409ed44-661a-4c55-bebf-ae112c13bbd3" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -149,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700312493877</updated>
       <workItem from="1700312494921" duration="43434000" />
-      <workItem from="1701027454536" duration="123857000" />
+      <workItem from="1701027454536" duration="124182000" />
     </task>
     <task id="LOCAL-00001" summary="nye">
       <option name="closed" value="true" />
@@ -303,7 +248,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701699986553</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="05-12-2023 kl 15:47">
+      <option name="closed" value="true" />
+      <created>1701787688406</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1701787688406</updated>
+    </task>
+    <task id="LOCAL-00021" summary="05-12-2023 kl 15:50">
+      <option name="closed" value="true" />
+      <created>1701787861391</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1701787861391</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,8 +296,10 @@
     <MESSAGE value="30-11 17:13" />
     <MESSAGE value="30-11 23:42" />
     <MESSAGE value="01-12-2023" />
-    <MESSAGE value="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer" />
     <MESSAGE value="04-12-2023" />
-    <option name="LAST_COMMIT_MESSAGE" value="04-12-2023" />
+    <MESSAGE value="kan nu printe det som stå i csv filen og man kan oprette ny medlemmer" />
+    <MESSAGE value="05-12-2023 kl 15:47" />
+    <MESSAGE value="05-12-2023 kl 15:50" />
+    <option name="LAST_COMMIT_MESSAGE" value="05-12-2023 kl 15:50" />
   </component>
 </project>
