@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Medlem {
 
+
     private String birthdate;
     private String fullName;
     private String gender;
@@ -73,7 +74,6 @@ public class Medlem {
     public void setCompetitionSwimmer(String isCompetitionSwimmer) {
         this.isCompetitionSwimmer = isCompetitionSwimmer;
     }
-
 
 
 

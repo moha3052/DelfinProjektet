@@ -219,7 +219,7 @@ public class UserInterface {
                 LocalDate currentDate = LocalDate.now();
                 int age = Period.between(birthday, currentDate).getYears();
 
-                if (age < 17) {
+                if (age <= 17) {
                     System.out.println(fullName + " er " + age + " år gammel " + "og er derfor juniorsvømmer.");
                     validDate = true;
                 } else if (age >= 18 && age <= 59) {

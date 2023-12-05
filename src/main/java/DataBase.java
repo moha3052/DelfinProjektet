@@ -113,7 +113,7 @@ public class DataBase {
                 return medlem;
             }
         }
-        System.out.println("kunne ikke finde medlemmets navn");
+        System.out.println("Kunne ikke finde medlemmets navn");
         return null;
     }
 
