@@ -119,57 +119,7 @@ public class DataBase {
         return null;
     }
 
-    String readString() {
-        String readString;
-        do {
-            readString = scan.nextLine();
-            if (readString.isEmpty()) {
-                System.out.println("prøv igen");
-            }
-        }
-        while (readString.isEmpty());
-        return readString;
-    }
 
-    int readInt() {
-        while (!scan.hasNextInt()) {
-            String text = scan.nextLine();
-            System.out.println(text + " er ugyldigt input. Prøv igen.");
-        }
-        int result;
-        result = scan.nextInt();
-        scan.nextLine();
-        return result;
-    }
-
-    private double readDouble() {
-        while (!scan.hasNextDouble()) {
-            String text = scan.nextLine();
-            System.out.println(text + " er ugyldigt input. Prøv igen.");
-        }
-        double result;
-        result = scan.nextDouble();
-        scan.nextLine();
-        return result;
-    }
-
-    public boolean readBoolean() {
-        while (true) {
-            System.out.print("Indtast 'ja' eller 'nej': ");
-            String input = scan.nextLine().trim().toLowerCase();
-
-
-            if (input.equals("ja")) {
-                System.out.println("Du svarede 'ja'.");
-                return true;
-            } else if (input.equals("nej")) {
-                System.out.println("Du svarede 'nej'.");
-                return false;
-            } else {
-                System.out.println("Ugyldigt input. Prøv igen.");
-            }
-        }
-    }
 
 
 }

@@ -2,42 +2,18 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class Kasseren {
+public class KasserLogik {
+
+    private int medlemsPris = 0;
+
+
+
+
+    ArrayList<KasserLogik> kasserLogikArrayList = new ArrayList<>();
+
 
     DataBase dataBase = new DataBase();
-
-    Scanner scanner = new Scanner(System.in);
-
-    public void printKassere() {
-        System.out.println();
-        System.out.println("Kassere: ");
-        System.out.println("_________________");
-        System.out.println("1. Oversigt over betaling");
-        System.out.println("3. Tilbage til menu");
-        System.out.println();
-    }
-        public void handleKassere () {
-            boolean kassereRunning = true;
-
-            while (kassereRunning) {
-                printKassere();
-                int kassereChoice = scanner.nextInt();
-
-                switch (kassereChoice) {
-                    case 1:
-                        oversigtOverKontingent();
-                    case 3:
-                        kassereRunning = false;
-                        break;
-                    default:
-                        System.out.println("Ugyldigt valg. Prøv igen.");
-                        break;
-                }
-            }
-        }
-
 
 
     public int oversigtOverKontingent(){
@@ -45,7 +21,7 @@ public class Kasseren {
         ArrayList<Medlem> medlems = dataBase.getMedlemmer();
 
         for(Medlem medlem: medlems){
-            int medlemsPris = 0;
+
             if (!medlem.getisAktiv()){
                 medlemsPris = 500;
             } else {
