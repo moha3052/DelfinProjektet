@@ -68,7 +68,8 @@ public class Resultater {
 
     @Override
     public String toString() {
-        return "Type:" + " " + type + " "
+        return "Navnet på deltageren:" + " " + medlem + " - " +
+                "Type:" + " " + type + " "
                 + " Dato:" + " " + dato + " "
                 + " Tid:" + " " + tid + " " +
                 " Diciplin:" + " " + disciplin  + '\n';
