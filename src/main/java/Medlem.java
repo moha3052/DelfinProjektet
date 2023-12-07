@@ -11,6 +11,11 @@ public class Medlem {
     private String isCompetitionSwimmer;
     private boolean isAktiv;
     private Medlem id;
+
+    public void setRestance(double restance) {
+        this.restance = restance;
+    }
+
     private double restance;
 
     public double getRestance() {

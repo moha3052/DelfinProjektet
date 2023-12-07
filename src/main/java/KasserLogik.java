@@ -64,14 +64,14 @@ public class KasserLogik {
     }
     public double medlemRestance() {
         ArrayList<Medlem> medlems = dataBase.getMedlemsListe();
-       ArrayList<Double> restanceList = new ArrayList<>();
-double restanceOgKontingent = 0.0;
+       //ArrayList<Double> restanceList = new ArrayList<>();
+        double tilbageKontingen = 0.0;
         for (Medlem medlem : medlems) {
 
-            restanceOgKontingent += medlem.getRestance();
+            tilbageKontingen = medlemsKontingent(medlem) - medlem.getRestance();
 
         }
-        return restanceOgKontingent;
+        return tilbageKontingen;
     }
 
 
