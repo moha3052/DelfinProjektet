@@ -21,7 +21,8 @@ public class FileHandler {
                 String adress = parts[6];
                 String isCompetitionSwimmer = parts[7];
                 boolean isAktiv =  Boolean.parseBoolean(parts[8]);
-                Medlem medlem = new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, isCompetitionSwimmer, isAktiv);
+                double restance = Double.parseDouble(parts[9]);
+                Medlem medlem = new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, isCompetitionSwimmer, isAktiv, restance);
                 visAlleMedlemmer.add(medlem);
             }
         } catch (FileNotFoundException e) {
@@ -67,7 +68,8 @@ public class FileHandler {
             for (Medlem medlem : medlemsListe) {
                 output.println(medlem.getFullName() + ";" + medlem.getBirthdate() + ";"
                         + medlem.getGender() + ";" + medlem.getIdNumber() + ";" + medlem.getEmail() +
-                        ";" + medlem.getPhoneNumber() + ";" + medlem.getAdress() + ";" + medlem.getCompetitionSwimmer() + ";" + medlem.getisAktiv());
+                        ";" + medlem.getPhoneNumber() + ";" + medlem.getAdress() + ";" + medlem.getCompetitionSwimmer() + ";"
+                        + medlem.getisAktiv() + ";" + medlem.getRestance());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();

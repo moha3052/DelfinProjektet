@@ -4,24 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="06-12-2023 kl 15:54">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2023_17_00_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2023_17_00_[Changes_by_xuanloclam]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2023_17_00_[Changes_by_younesbenaddi]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2023_17_00__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2023_17_00__Changes_by_xuanloclam_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-11-2023_17_00__Changes_by_younesbenaddi_.xml" beforeDir="false" />
+    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="07-12-2023 kl 15:06">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resultater.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Resultater.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/medlemmer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/medlemmer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/KasserLogik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KasserLogik.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Medlem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medlem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Resultater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Resultater.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
     </list>
     <list id="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" name="Changes by younesbenaddi" comment="">
+      <change beforePath="$PROJECT_DIR$/medlemmer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/medlemmer.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,33 +47,15 @@
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/src/main/java/UserInterface.java">
       <ranges>
-        <range start1="4" end1="4" start2="4" end2="5" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="100" end1="101" start2="101" end2="103" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="240" end1="241" start2="242" end2="243" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="246" end1="247" start2="248" end2="249" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="310" end1="311" start2="312" end2="313" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="312" end1="312" start2="314" end2="322" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="315" end1="321" start2="325" end2="330" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="322" end1="343" start2="331" end2="336" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="344" end1="352" start2="337" end2="349" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="353" end1="357" start2="350" end2="352" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="358" end1="364" start2="353" end2="357" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="365" end1="377" start2="358" end2="364" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="378" end1="390" start2="365" end2="384" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="393" end1="396" start2="387" end2="395" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="398" end1="398" start2="397" end2="406" changelist="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" />
-        <range start1="403" end1="404" start2="411" end2="411" changelist="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" />
-        <range start1="410" end1="411" start2="417" end2="418" changelist="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" />
-        <range start1="415" end1="416" start2="422" end2="423" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="420" end1="421" start2="427" end2="428" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="425" end1="426" start2="432" end2="433" changelist="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" />
-        <range start1="430" end1="431" start2="437" end2="438" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="433" end1="433" start2="440" end2="441" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="434" end1="435" start2="442" end2="443" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="443" end1="444" start2="451" end2="452" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="446" end1="448" start2="454" end2="456" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="451" end1="459" start2="459" end2="460" changelist="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" />
-        <range start1="488" end1="489" start2="489" end2="490" changelist="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" />
+        <range start1="186" end1="186" start2="186" end2="190" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="193" end1="194" start2="197" end2="199" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
+        <range start1="397" end1="397" start2="402" end2="411" changelist="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" />
+        <range start1="402" end1="403" start2="416" end2="416" changelist="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" />
+        <range start1="409" end1="410" start2="422" end2="423" changelist="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" />
+        <range start1="424" end1="425" start2="437" end2="438" changelist="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" />
+        <range start1="451" end1="459" start2="464" end2="465" changelist="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" />
+        <range start1="488" end1="489" start2="494" end2="495" changelist="9faefcf0-9e9a-40b9-b7ed-af01887e1b43" />
+        <range start1="495" end1="495" start2="501" end2="505" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
       </ranges>
     </file>
   </component>
@@ -144,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700312493877</updated>
       <workItem from="1700312494921" duration="43434000" />
-      <workItem from="1701027454536" duration="152005000" />
+      <workItem from="1701027454536" duration="155074000" />
     </task>
     <task id="LOCAL-00001" summary="nye">
       <option name="closed" value="true" />
@@ -354,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701874595509</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="07-12-2023 kl 15:06">
+      <option name="closed" value="true" />
+      <created>1701958044919</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1701958044920</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,6 +373,17 @@
     <MESSAGE value="05-12-2023 kl 23:09&#10;&#10;Har opdelt dem i klasser." />
     <MESSAGE value="06-12-2023 kl 15:54" />
     <MESSAGE value="Changes by younesbenaddi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by younesbenaddi" />
+    <MESSAGE value="07-12-2023 kl 15:06" />
+    <option name="LAST_COMMIT_MESSAGE" value="07-12-2023 kl 15:06" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="9" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

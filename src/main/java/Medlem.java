@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Medlem {
 
 
@@ -13,10 +11,14 @@ public class Medlem {
     private String isCompetitionSwimmer;
     private boolean isAktiv;
     private Medlem id;
+    private double restance;
 
+    public double getRestance() {
+        return restance;
+    }
 
     // Denne konstruktør bliver brugt til at oprette et nyt medlem.
-    public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer) {
+    public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer, boolean isAktiv, double restance) {
         this.birthdate = birthdate;
         this.fullName = fullName;
         this.gender = gender;
@@ -26,6 +28,7 @@ public class Medlem {
         this.adress = adress;
        this.isCompetitionSwimmer = isCompetitionSwimmer;
        this.isAktiv = true;
+       this.restance = restance;
     }
 
     // Denne konstruktør bliver brugt til at læse fra csv filen.
@@ -128,7 +131,7 @@ public class Medlem {
                 " phoneNumber: " + phoneNumber + " " +
                 " adress: " + adress + " " +
                 " CompetitionSwimmer: " + isCompetitionSwimmer + " " +
-                " Aktiv: " + isAktiv + '\n';
+                " Aktiv: " + isAktiv + "restance" + restance + '\n';
     }
 
 

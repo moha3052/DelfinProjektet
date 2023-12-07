@@ -185,13 +185,18 @@ public class UserInterface {
             System.out.println("Ugyldigt svar. Indtast enten 'ja' eller 'nej'.");
         }
 
+        System.out.println("Restance");
+        double restance = readDouble();
+        System.out.println("-------------");
+
         System.out.println();
         System.out.println(fullName + " " + "er blevet registreret i klubben");
         System.out.println();
         int idNumber = dataBase.getMedlemsListe().size() + 1;
         System.out.println("Medlemmets ID nummer." + idNumber );
         System.out.println();
-        dataBase.tilføjMedlemTilArray(new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer));
+        boolean isAktiv = readBoolean();
+        dataBase.tilføjMedlemTilArray(new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer, isAktiv, restance));
         dataBase.gemMedlemlistTilCSV();
     }
 
@@ -493,6 +498,10 @@ public class UserInterface {
                     break;
                 case 3:
                     System.out.println("Her er en oversigt over medlemmer med manglende betaling:");
+                    System.out.println("Venligst indtast et medlemsID for at se en oversigt over medlemmers stamoplysninger, samt Restance:");
+                    int id1 = scanner.nextInt();
+                    Medlem medlem1 = dataBase.findMedlemById(id1);
+                    System.out.println(medlem1.getFullName() + "s restance " + kasseren.medlemRestance()+ "kr.");
                     break;
                 case 4:
                     kassereRunning = false;
