@@ -400,19 +400,27 @@ public class UserInterface {
 
 
         if (resultater != null) {
+            System.out.println("vælg mellem disse:");
+            System.out.println();
+            for (int i = 0; i < resultater.size(); i++) {
+                System.out.print(i+1);
+                System.out.println(resultater.get(i));
+            }
+            int input = readInt();
+
+            Resultater r = resultater.get(input -1);
             System.out.println("Vælg hvad du vil redigere:");
             System.out.println("1. Øvelse (Træning eller stævne) ");
             System.out.println("2. Dato");
             System.out.println("3. diciplin indenfor (butterfly, crawl, rygcrawl og brystsvømning)");
             System.out.println("4. tid");
 
-
             int valgMuligheder = readInt();
             switch (valgMuligheder) {
                 case 1:
                     System.out.println("Indtast ny øvelse:");
                     String nyØvelse = readString();
-                    resultater.setType(nyØvelse);
+                    r.setType(nyØvelse);
                     break;
                 case 2:
                     System.out.println("Indtast ny dato");
@@ -427,7 +435,7 @@ public class UserInterface {
                 case 4:
                     System.out.println("Indtast ny tid");
                     String nytTid = readString();
-                    resultater.setTid(nytTid);
+                    r.setTid(nytTid);
                     break;
                 default:
                     System.out.println("Ugyldigt valg.");
@@ -454,14 +462,7 @@ public class UserInterface {
                 midleretideResultat.add(resultat);
             }
         }
-        System.out.println("hvilket resultat vil du tjekke");
-        for (int i = 0; i < midleretideResultat.size(); i++) {
-            System.out.println("#" + (i + 1) + midleretideResultat.get(i).toString());
-        }
-        System.out.println("indtast nummeret på resultatet du vil ændre");
-        int numberInList = scanner.nextInt();
-
-        return midleretideResultat.get(numberInList);
+        return midleretideResultat;
     }
 
  //==============================================================================
@@ -491,7 +492,7 @@ public class UserInterface {
                     OversigtOverKontingent();
                     break;
                 case 2:
-                    System.out.println("Venligst indtast et medlemsID for at se en oversigt over medlemmers stamoplysninger, samt kontigent:");
+                    System.out.println("Venligst indtast et medlemsID for at se en oversigt over medlemmets navn, samt kontigent:");
                     int id = scanner.nextInt();
                     Medlem medlem = dataBase.findMedlemById(id);
                     System.out.println(medlem.getFullName() + " betaler " + kasseren.medlemsKontingent(medlem)+ "DKK om året");
