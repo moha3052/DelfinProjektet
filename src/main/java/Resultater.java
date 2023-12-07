@@ -4,6 +4,8 @@ public class Resultater {
     private String disciplin;
     private String medlem;
     private int medlemsId;
+    private Medlem id;
+    private String fullName;
     private String tid;
 
     public Resultater(String type, String dato, String disciplin, String medlem, int medlemsId, String tid){
@@ -15,6 +17,10 @@ public class Resultater {
         this.tid = tid;
 
     }
+
+
+
+
 
     public void setMedlemsId(int medlemsId){
         this.medlemsId = medlemsId;
@@ -68,8 +74,9 @@ public class Resultater {
 
     @Override
     public String toString() {
-        return "Navnet på deltageren:" + " " + medlem + " - " +
-                "Type:" + " " + type + " "
+        return " Navnet på deltageren:" + " " + medlem + " - " +
+                "Type:" + " " + type + " " +
+                "Id:" + " " + medlemsId
                 + " Dato:" + " " + dato + " "
                 + " Tid:" + " " + tid + " " +
                 " Diciplin:" + " " + disciplin  + '\n';

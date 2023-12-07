@@ -36,7 +36,7 @@ public class DataBase {
     }
 
 
-    public ArrayList<Resultater> getResultater(){
+    public ArrayList<Resultater> getResultaterList(){
         return resultaterList;
     }
 
@@ -47,7 +47,7 @@ public class DataBase {
         }
     }
 
-    public void printResultater(){
+    public void printResultaterList(){
         for(Resultater training : resultaterList){
             System.out.println(training.toString());
         }

@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -98,7 +99,8 @@ public class UserInterface {
         }
     }
 
-
+    //==============================================================================
+//==============================Formand==========================================
     private void opretMedlem() {
         System.out.println();
         System.out.println("Fulde navn");
@@ -238,13 +240,13 @@ public class UserInterface {
                     medlem.setPhoneNumber(nytPhonenumber);
                     break;
                 case 5:
-                    System.out.println("Er medlemmets aktivitetsstatus ændret?");
+                    System.out.println("Er medlemmets aktivitetsstatus ændret? tast, 'Ja' eller 'nej'");
                     String newCompetitionSwimmer = readString();
                     medlem.setCompetitionSwimmer(newCompetitionSwimmer);
                     break;
 
                 case 6:
-                    System.out.println("Er medlemmets stadigvæk aktiv?");
+                    System.out.println("Er medlemmets stadigvæk aktiv? tast, 'Ja' eller 'nej'");
                     boolean passiv = readBoolean();
                     medlem.setisaktiv(passiv);
                 default:
@@ -308,92 +310,89 @@ public class UserInterface {
 
 
     public void visResultater() {
-        dataBase.printResultater();
+        dataBase.printResultaterList();
+    }
+
+    public void visMedlemmersResultater() {
+        System.out.println("Her er medlemmerne i delfinsvømmeklubben: ");
+        System.out.println();
+        System.out.println("_________________");
+        System.out.println();
+        visResultater();
     }
 
 
     public void registreTid() {
-        visMedlemmer();
-        System.out.println();
-        System.out.println("Indtaste navn på det medlem du gerne vil give resultat:");
-        scanner.nextLine();
-        String navn = readString();
+        try {
+            visMedlemmer();
+            System.out.println("\nIndtast medlemmets ID:");
+            int id = readInt();
+            Medlem medlem = dataBase.findMedlemById(id);
+
+                if (medlem != null) {
+                    String type = "";
+                    while (!type.equals("træning") && !type.equals("stævne")) {
+                        System.out.println("Indtast 'træning' eller 'stævne':");
+                        type = scanner.nextLine().toLowerCase();
+
+                        switch (type) {
+                            case "træning":
+                                System.out.println("Du har valgt træning.");
+                                break;
+                            case "stævne":
+                                System.out.println("Du har valgt stævne.");
+                                break;
+                            default:
+                                System.out.println("Ugyldigt valg, prøv igen.");
+                                break;
+                        }
+                    }
+
+                    System.out.println("\nIndtast dato (f.eks. dd-mm-yyyy):");
+                    String dato = readString();
+
+                    System.out.println("\nIndtast disciplin indenfor (butterfly, crawl, rygcrawl, brystsvømning)");
+                    String disciplin = "";
+                    while (!Arrays.asList("butterfly", "crawl", "rygcrawl", "brystsvømning").contains(disciplin)) {
+                        disciplin = scanner.nextLine().toLowerCase();
+
+                        if (Arrays.asList("butterfly", "crawl", "rygcrawl", "brystsvømning").contains(disciplin)) {
+                            System.out.println("Du har valgt " + disciplin + ".");
+                        } else {
+                            System.out.println("Ugyldigt valg, prøv igen.");
+                        }
+                    }
+
+                    System.out.println("\nIndsæt tid (målt i minutter og sekunder, f.eks. 5m30s):");
+                    String tid = readString();
 
 
-        ArrayList<Medlem> medlemmer = dataBase.getMedlemsListe();
-        if (medlemmer == null || medlemmer.isEmpty()) {
-            System.out.println("Ingen medlemmer at søge i.");
-            return;
-        }
-        Medlem medlemFundet = null;
-        for (Medlem medlem : medlemmer) {
-            if (navn.equals(medlem.getFullName())) {
-                System.out.println();
-                System.out.println("Medlemmet blev fundet: " + medlem.getFullName());
-                medlemFundet = medlem;
-                break;
-            }
-        }
-        int medlemsId = readInt();
 
-        if (medlemFundet != null) {
-            String type = "";
-            while (!type.equals("træning") && !type.equals("stævne")) {
-                System.out.println("Indtast 'træning' eller 'stævne':");
-                type = scanner.nextLine().toLowerCase();
-
-                if (type.equals("træning")) {
-                    System.out.println("Du har valgt træning.");
-                } else if (type.equals("stævne")) {
-                    System.out.println("Du har valgt stævne.");
+                    int idNumber = dataBase.getResultaterList().size() + 1;
+                    System.out.println();
+                    System.out.println(medlem.getFullName() + " " + "har fået oprettet sine resultater.");
+                    dataBase.tilføjResultaterTilArray(new Resultater(type, dato, disciplin, medlem.getFullName(), medlem.getIdNumber(), tid));
+                    dataBase.gemResultattilCsv();
                 } else {
-                    System.out.println("Ugyldigt valg, prøv igen.");
+                    System.out.println("Medlem blev ikke fundet");
                 }
-            }
-
-            System.out.println();
-            System.out.println("Indtast dato:");
-            String dato = readString();
-            System.out.println();
-
-            System.out.println("Indtast diciplin indenfor (butterfly, crawl, rygcrawl og brystsvømning)");
-            String disciplin = "";
-
-            while (!disciplin.equals("butterfly") && !disciplin.equals("crawl") && !disciplin.equals("rygcrawl") &&
-                    !disciplin.equals("brystsvømning")) {
-                disciplin = scanner.nextLine().toLowerCase();
-
-                if (disciplin.equals("butterfly")) {
-                    System.out.println("Du har valgt butterfly.");
-                } else if (disciplin.equals("crawl")) {
-                    System.out.println("Du har valgt crawl.");
-                } else if (disciplin.equals("rygcrawl")) {
-                    System.out.println("Du har valgt rygcrawl.");
-                } else if (disciplin.equals("brystsvømning")) {
-                    System.out.println("Du har valgt brystsvømning.");
-                } else {
-                    System.out.println("Ugyldigt valg, prøv igen.");
-                }
-            }
-
-
-            System.out.println();
-            System.out.println("Indsæt tid (målt i minutter og sekundere)");
-            String tid = readString();
-            System.out.println();
-
-            dataBase.tilføjResultaterTilArray(new Resultater(type, dato, disciplin, medlemFundet.getFullName(), medlemsId, tid));
-            System.out.println("Resultaterne er blevet oprettet.");
-            dataBase.gemResultattilCsv();
-        } else {
-            System.out.println("Medlem blev ikke fundet");
+            } catch (Exception e) {
+                System.out.println("Der opstod en fejl: " + e.getMessage());
         }
+
+
+
     }
 
     public void redigerResultat() {
-        System.out.println("Indtast medlemmets navn:");
-        String navn = readString();
-        Resultater resultater = findResultatPåNavn(navn);
+        visMedlemmersResultater();
+        System.out.println();
+        System.out.println("Indtast medlemmets ID:");
+        int id = readInt();
+        System.out.println();
+        ArrayList<Resultater> resultater = findResultatPåId(id);
+        dataBase.findMedlemById(id);
+
 
         if (resultater != null) {
             System.out.println("Vælg hvad du vil redigere:");
@@ -413,12 +412,12 @@ public class UserInterface {
                 case 2:
                     System.out.println("Indtast ny dato");
                     String nytDato = readString();
-                    resultater.setDato(nytDato);
+                    r.setDato(nytDato);
                     break;
                 case 3:
                     System.out.println("Indtast ny diciplin indenfor (butterfly, crawl, rygcrawl og brystsvømning)");
                     String nytDiciplin = readString();
-                    resultater.setDisciplin(nytDiciplin);
+                    r.setDisciplin(nytDiciplin);
                     break;
                 case 4:
                     System.out.println("Indtast ny tid");
@@ -428,11 +427,12 @@ public class UserInterface {
                 default:
                     System.out.println("Ugyldigt valg.");
             }
-            dataBase.opdaterResultatIDatabase(resultater);
+            dataBase.opdaterResultatIDatabase(r);
             System.out.println();
             System.out.println("Resultaterne er opdateret.");
+            dataBase.gemResultattilCsv();
         } else {
-            System.out.println("Medlem: " + navn + " blev ikke fundet.");
+            System.out.println("Medlem: " + id + " blev ikke fundet.");
         }
     }
 
@@ -441,11 +441,11 @@ public class UserInterface {
         registreTid();
     }
 
-    public Resultater findResultatPåNavn(String navn) {
+    public ArrayList<Resultater> findResultatPåId(int id) {
         ArrayList<Resultater> midleretideResultat = new ArrayList<>();
 
-        for (Resultater resultat : dataBase.getResultater()) {
-            if (resultat.getmedlem().equals(navn)) {
+        for (Resultater resultat : dataBase.getResultaterList()) {
+            if (resultat.getMedlemsId() == id) {
                 midleretideResultat.add(resultat);
             }
         }

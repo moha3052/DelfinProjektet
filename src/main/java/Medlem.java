@@ -12,6 +12,7 @@ public class Medlem {
     private String adress;
     private String isCompetitionSwimmer;
     private boolean isAktiv;
+    private Medlem id;
 
 
     // Denne konstruktør bliver brugt til at oprette et nyt medlem.
@@ -80,6 +81,9 @@ public class Medlem {
     public String getBirthdate() {
         return birthdate;
     }
+    public Medlem getId() {
+        return id;
+    }
 
     public String getFullName() {
         return fullName;
@@ -126,4 +130,6 @@ public class Medlem {
                 " CompetitionSwimmer: " + isCompetitionSwimmer + " " +
                 " Aktiv: " + isAktiv + '\n';
     }
+
+
 }

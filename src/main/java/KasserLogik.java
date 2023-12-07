@@ -7,13 +7,6 @@ public class KasserLogik {
 
     private int medlemsPris = 0;
 
-
-
-
-    ArrayList<KasserLogik> kasserLogikArrayList = new ArrayList<>();
-
-
-    public int oversigtOverKontingent;
     DataBase dataBase = new DataBase();
 
 
