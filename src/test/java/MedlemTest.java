@@ -1,3 +1,4 @@
+import Model.Medlem;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +30,7 @@ class MedlemTest {
         }
         @Test
         void testToString() {
-            // Arrange: Create a Medlem object with sample data
+            // Arrange: Create a Model.Medlem object with sample data
             Medlem medlem = new Medlem("11-01-1980", "Danis Bomer", "mand", 90, "Bomer@yahoo.com", 21212121, "Baggesensgade31", "ja");
             medlem.setBirthdate("11-01-1980");
             medlem.setFullName("Danis Bomer");
@@ -43,7 +44,7 @@ class MedlemTest {
             medlem.setBeløbBetalt(1000);
 
             // Expected string with correct formatting
-            String expected = "Medlem: birthdate: 11-01-1980  fullName: Danis Bomer  gender: mand  idNumber: 90  email: Bomer@yahoo.com  phoneNumber: 21212121  adress: Baggesensgade31  CompetitionSwimmer: ja  Aktiv: truerestance1000.0" ;
+            String expected = "Model.Medlem: birthdate: 11-01-1980  fullName: Danis Bomer  gender: mand  idNumber: 90  email: Bomer@yahoo.com  phoneNumber: 21212121  adress: Baggesensgade31  CompetitionSwimmer: ja  Aktiv: truerestance1000.0" ;
 
             // Actual result from toString() method
             String actual = medlem.toString().trim();

@@ -1,3 +1,6 @@
+import Database.FileHandler;
+import Model.Medlem;
+import Model.Resultater;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

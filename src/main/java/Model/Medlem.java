@@ -1,3 +1,7 @@
+package Model;
+
+import Logik.KasserLogik;
+
 public class Medlem {
     private String birthdate;
     private String fullName;
@@ -139,7 +143,7 @@ public class Medlem {
 
     @Override
     public String toString() {
-        return "Medlem: " +
+        return "Model.Medlem: " +
                 "birthdate: " + birthdate + " " +
                 " fullName: " + fullName + " " +
                 " gender: " + gender + " "+

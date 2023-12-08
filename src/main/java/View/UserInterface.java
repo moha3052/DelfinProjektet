@@ -1,3 +1,10 @@
+package View;
+
+import Database.DataBase;
+import Logik.KasserLogik;
+import Model.Medlem;
+import Model.Resultater;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -269,7 +276,7 @@ public class UserInterface {
             System.out.println("Medlemmet er opdateret.");
             System.out.println();
         } else {
-            System.out.println("Medlem med ID " + id + " blev ikke fundet.");
+            System.out.println("Model.Medlem med ID " + id + " blev ikke fundet.");
         }
     }
     public static boolean isValidEmail(String email) {
@@ -413,7 +420,7 @@ public class UserInterface {
                     dataBase.tilføjResultaterTilArray(new Resultater(type, dato, disciplin, medlem.getFullName(), medlem.getIdNumber(), tid));
                     dataBase.gemResultattilCsv();
                 } else {
-                    System.out.println("Medlem blev ikke fundet");
+                    System.out.println("Model.Medlem blev ikke fundet");
                 }
             } catch (Exception e) {
                 System.out.println("Der opstod en fejl: " + e.getMessage());
@@ -500,7 +507,7 @@ public class UserInterface {
             System.out.println("Resultaterne er opdateret.");
             dataBase.gemResultattilCsv();
         } else {
-            System.out.println("Medlem: " + id + " blev ikke fundet.");
+            System.out.println("Model.Medlem: " + id + " blev ikke fundet.");
         }
     }
 

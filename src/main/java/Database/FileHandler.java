@@ -1,3 +1,8 @@
+package Database;
+
+import Model.Medlem;
+import Model.Resultater;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;

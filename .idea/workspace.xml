@@ -4,23 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="07-12-2023 kl 16:30">
+    <list default="true" id="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" name="Changes" comment="08-12-2023 kl 15:36">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resultater.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Resultater.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/medlemmer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/medlemmer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/KasserLogik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/KasserLogik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/DataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Database/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/KasserLogik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Logik/KasserLogik.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Medlem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medlem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Resultater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Resultater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Medlem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Medlem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Resultater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Resultater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/View/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/DataBaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DataBaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/FileHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FileHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/KasserLogikTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/KasserLogikTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MedlemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MedlemTest.java" afterDir="false" />
     </list>
-    <list id="1b7f8148-ddff-4343-9317-fee079a381a4" name="Changes by younesbenaddi" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
-    </list>
+    <list id="1b7f8148-ddff-4343-9317-fee079a381a4" name="Changes by younesbenaddi" comment="Changes by younesbenaddi" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,32 +48,6 @@
         <option name="url" value="https://github.com/moha3052/DelfinProjektet.git" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/UserInterface.java">
-      <ranges>
-        <range start1="6" end1="6" start2="6" end2="8" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="11" end1="13" start2="13" end2="16" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="173" end1="173" start2="176" end2="177" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="187" end1="190" start2="191" end2="191" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="195" end1="196" start2="196" end2="197" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="197" end1="199" start2="198" end2="199" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="211" end1="211" start2="211" end2="212" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="222" end1="223" start2="223" end2="225" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="251" end1="252" start2="253" end2="253" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="253" end1="254" start2="254" end2="261" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="356" end1="357" start2="363" end2="378" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="370" end1="372" start2="391" end2="406" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="402" end1="407" start2="436" end2="447" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="408" end1="409" start2="448" end2="449" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="425" end1="427" start2="465" end2="482" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="494" end1="494" start2="549" end2="550" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="495" end1="496" start2="551" end2="552" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="497" end1="498" start2="553" end2="554" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="502" end1="503" start2="558" end2="559" changelist="ca52fd93-6d93-4709-b0ac-e84e6bb56ebc" />
-        <range start1="504" end1="505" start2="560" end2="561" changelist="1b7f8148-ddff-4343-9317-fee079a381a4" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -190,7 +162,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700312493877</updated>
       <workItem from="1700312494921" duration="43434000" />
-      <workItem from="1701027454536" duration="182822000" />
+      <workItem from="1701027454536" duration="184305000" />
     </task>
     <task id="LOCAL-00001" summary="nye">
       <option name="closed" value="true" />
@@ -432,7 +404,39 @@
       <option name="project" value="LOCAL" />
       <updated>1701963133736</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="08-12-2023 kl 15:27">
+      <option name="closed" value="true" />
+      <created>1702045663004</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1702045663005</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Changes by younesbenaddi">
+      <option name="closed" value="true" />
+      <created>1702045697576</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1702045697576</updated>
+    </task>
+    <task id="LOCAL-00033" summary="08-12-2023 kl 15:30">
+      <option name="closed" value="true" />
+      <created>1702045864343</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1702045864343</updated>
+    </task>
+    <task id="LOCAL-00034" summary="08-12-2023 kl 15:36">
+      <option name="closed" value="true" />
+      <created>1702046223017</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1702046223017</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,7 +454,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="nye" />
     <MESSAGE value="Kan gemme i csv fil" />
     <MESSAGE value="Kan gemme medlemsopslyninger i csv filen" />
     <MESSAGE value="csv fil" />
@@ -472,8 +475,11 @@
     <MESSAGE value="07-12-2023 kl 15:06" />
     <MESSAGE value="07-12-2023 kl 16:00" />
     <MESSAGE value="07-12-2023 kl 16:30" />
+    <MESSAGE value="08-12-2023 kl 15:27" />
     <MESSAGE value="Changes by younesbenaddi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by younesbenaddi" />
+    <MESSAGE value="08-12-2023 kl 15:30" />
+    <MESSAGE value="08-12-2023 kl 15:36" />
+    <option name="LAST_COMMIT_MESSAGE" value="08-12-2023 kl 15:36" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
