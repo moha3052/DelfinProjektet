@@ -1,6 +1,9 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Resultater {
     private String type;
-    private String dato;
+    private LocalDate dato;
     private String disciplin;
     private String medlem;
     private int medlemsId;
@@ -10,7 +13,8 @@ public class Resultater {
 
     public Resultater(String type, String dato, String disciplin, String medlem, int medlemsId, String tid){
         this.type = type;
-        this.dato = dato;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        this.dato = LocalDate.parse(dato, formatter);
         this.disciplin = disciplin;
         this.medlem = medlem;
         this.medlemsId = medlemsId;
@@ -19,14 +23,11 @@ public class Resultater {
     }
 
 
-
-
-
     public void setMedlemsId(int medlemsId){
         this.medlemsId = medlemsId;
     }
 
-    public void setDato(String dato){
+    public void setDato(LocalDate dato){
         this.dato = dato;
     }
 
@@ -47,7 +48,7 @@ public class Resultater {
 
 
 
-    public String getDato(){
+    public LocalDate getDato(){
         return dato;
     }
 

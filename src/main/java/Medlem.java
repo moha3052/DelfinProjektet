@@ -1,6 +1,8 @@
 public class Medlem {
 
 
+
+
     private String birthdate;
     private String fullName;
     private String gender;
@@ -11,19 +13,32 @@ public class Medlem {
     private String isCompetitionSwimmer;
     private boolean isAktiv;
     private Medlem id;
+    private boolean restance;
 
-    public void setRestance(double restance) {
+    private int beløbBetalt;
+
+
+
+
+    public void setBeløbBetalt(int beløbBetalt) {
+        this.beløbBetalt = beløbBetalt;
+    }
+
+    public void setRestance(boolean restance){
         this.restance = restance;
     }
 
-    private double restance;
-
-    public double getRestance() {
+    public boolean getRestance(){
         return restance;
     }
 
+
+    public int getBeløbBetalt() {
+        return beløbBetalt;
+    }
+
     // Denne konstruktør bliver brugt til at oprette et nyt medlem.
-    public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer, boolean isAktiv, double restance) {
+    public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer) {
         this.birthdate = birthdate;
         this.fullName = fullName;
         this.gender = gender;
@@ -33,11 +48,12 @@ public class Medlem {
         this.adress = adress;
        this.isCompetitionSwimmer = isCompetitionSwimmer;
        this.isAktiv = true;
-       this.restance = restance;
+       this.restance = false;
+       this.beløbBetalt = KasserLogik.medlemsKontingent(this);
     }
 
     // Denne konstruktør bliver brugt til at læse fra csv filen.
-    public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer, boolean isAktiv) {
+    public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer, boolean isAktiv, boolean restance, int beløbBetalt) {
         this.birthdate = birthdate;
         this.fullName = fullName;
         this.gender = gender;
@@ -47,6 +63,8 @@ public class Medlem {
         this.adress = adress;
         this.isCompetitionSwimmer = isCompetitionSwimmer;
         this.isAktiv = isAktiv;
+        this.restance = restance;
+        this.beløbBetalt = beløbBetalt;
     }
 
     public void setisaktiv(boolean isAktiv){
@@ -136,7 +154,8 @@ public class Medlem {
                 " phoneNumber: " + phoneNumber + " " +
                 " adress: " + adress + " " +
                 " CompetitionSwimmer: " + isCompetitionSwimmer + " " +
-                " Aktiv: " + isAktiv + "restance" + restance + '\n';
+                " Aktiv: " + isAktiv + " " + " Restance: " + restance +
+                " " + " Beløb betalt: " + beløbBetalt + '\n';
     }
 
 

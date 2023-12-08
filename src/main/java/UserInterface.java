@@ -4,13 +4,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     DataBase dataBase = new DataBase();
     KasserLogik kasseren = new KasserLogik();
-    
-   
+
+
+
 
 
     public void printMenu() {
@@ -173,6 +176,7 @@ public class UserInterface {
         System.out.println("_________________");
 
 
+
         System.out.println("Er medlemmet konkurrencesvømmer (ja/nej)?");
         String CompetitionSwimmer = readString();
         System.out.println("_________________");
@@ -185,18 +189,14 @@ public class UserInterface {
             System.out.println("Ugyldigt svar. Indtast enten 'ja' eller 'nej'.");
         }
 
-        System.out.println("Restance");
-        double restance = readDouble();
-        System.out.println("-------------");
 
         System.out.println();
         System.out.println(fullName + " " + "er blevet registreret i klubben");
         System.out.println();
         int idNumber = dataBase.getMedlemsListe().size() + 1;
-        System.out.println("Medlemmets ID nummer." + idNumber );
+        System.out.println("Medlemmets ID nummer er " + idNumber );
         System.out.println();
-        boolean isAktiv = readBoolean();
-        dataBase.tilføjMedlemTilArray(new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer, isAktiv, restance));
+        dataBase.tilføjMedlemTilArray(new Medlem(birthdate, fullName, gender, idNumber, email, phoneNumber, adress, CompetitionSwimmer));
         dataBase.gemMedlemlistTilCSV();
     }
 
@@ -209,6 +209,7 @@ public class UserInterface {
     }
 
     public void redigerMedlem() {
+        visMedlemmer();
         System.out.println("Indtast medlemmets ID:");
         int id = readInt();
         Medlem medlem = dataBase.findMedlemById(id);
@@ -220,7 +221,8 @@ public class UserInterface {
             System.out.println("3. Email");
             System.out.println("4. Indtast nyt mobilnummer");
             System.out.println("5. Er medlemmets aktivitetsstatus ændret?");
-            System.out.println("6. Er medlemmets stadigvæk aktiv?");
+            System.out.println("6. Hvor meget har medlemmet betalt?");
+            System.out.println("7. Er medlemmets stadigvæk aktiv?");
 
             int valg = readInt();
             switch (valg) {
@@ -249,9 +251,14 @@ public class UserInterface {
                     String newCompetitionSwimmer = readString();
                     medlem.setCompetitionSwimmer(newCompetitionSwimmer);
                     break;
-
                 case 6:
-                    System.out.println("Er medlemmets stadigvæk aktiv? tast, 'Ja' eller 'nej'");
+                    System.out.println("Hvor meget har medlemmet betalt?");
+                    int nytRestance = readInt();
+                    medlem.setBeløbBetalt(nytRestance);
+                    break;
+
+                case 7:
+                    System.out.println("Er medlemmets stadig aktiv? tast, 'Ja' eller 'nej'");
                     boolean passiv = readBoolean();
                     medlem.setisaktiv(passiv);
                 default:
@@ -354,7 +361,21 @@ public class UserInterface {
                     }
 
                     System.out.println("\nIndtast dato (f.eks. dd-mm-yyyy):");
-                    String dato = readString();
+                    String dato = null;
+                    boolean validDate = false;
+                    while (!validDate) {
+                        try {
+                            dato = readString();
+                            validDate = true;
+                            System.out.println("Du har valgt datoen.");
+                        } catch (Exception e) {
+                            System.out.println("Der opstod en fejl. Prøv igen.");
+                        }
+                    }
+
+
+
+
 
                     System.out.println("\nIndtast disciplin indenfor (butterfly, crawl, rygcrawl, brystsvømning)");
                     String disciplin = "";
@@ -368,8 +389,21 @@ public class UserInterface {
                         }
                     }
 
-                    System.out.println("\nIndsæt tid (målt i minutter og sekunder, f.eks. 5m30s):");
-                    String tid = readString();
+                    String tid;
+                    Pattern pattern = Pattern.compile("^([0-5]?\\d)m([0-5]?\\d)s$");
+
+                    while (true) {
+                        System.out.println("\nIndsæt tid (målt i minutter og sekunder, f.eks. 5m30s):");
+                        tid = scanner.nextLine();
+                        Matcher matcher = pattern.matcher(tid);
+
+                        if (matcher.find()) {
+                            System.out.println("Du har indtastet: " + matcher.group(1) + " minutter og " + matcher.group(2) + " sekunder.");
+                            break;
+                        } else {
+                            System.out.println("Ugyldigt format. Prøv igen.");
+                        }
+                    }
 
 
 
@@ -400,13 +434,19 @@ public class UserInterface {
 
 
         if (resultater != null) {
-            System.out.println("vælg mellem disse:");
-            System.out.println();
-            for (int i = 0; i < resultater.size(); i++) {
-                System.out.print(i+1);
-                System.out.println(resultater.get(i));
+            int input = 0;
+            if(resultater.size() == 1){
+                input = 1;
+            }else {
+                System.out.println("vælg mellem disse:");
+                System.out.println();
+                for (int i = 0; i < resultater.size(); i++) {
+                    System.out.print(i + 1);
+                    System.out.println(resultater.get(i));
+                }
+                input = readInt();
             }
-            int input = readInt();
+
 
             Resultater r = resultater.get(input -1);
             System.out.println("Vælg hvad du vil redigere:");
@@ -423,8 +463,23 @@ public class UserInterface {
                     r.setType(nyØvelse);
                     break;
                 case 2:
-                    System.out.println("Indtast ny dato");
-                    String nytDato = readString();
+                    System.out.println("Indtast ny dato (f.eks. dd-mm-yyyy):");
+                    boolean validDate = false;
+                    LocalDate nytDato =null;
+                    while (!validDate) {
+                        try {
+                            String day = readString();
+
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                            LocalDate localDate = LocalDate.parse(day, formatter);
+                            nytDato = localDate;
+                            validDate = true;
+                            System.out.println("Du har valgt datoen.");
+                        } catch (Exception e) {
+                            System.out.println("Der opstod en fejl. Prøv igen.");
+                        }
+
+                    }
                     r.setDato(nytDato);
                     break;
                 case 3:
@@ -492,15 +547,16 @@ public class UserInterface {
                     OversigtOverKontingent();
                     break;
                 case 2:
+                    visMedlemmer();
                     System.out.println("Venligst indtast et medlemsID for at se en oversigt over medlemmets navn, samt kontigent:");
-                    int id = scanner.nextInt();
+                    int id = readInt();
                     Medlem medlem = dataBase.findMedlemById(id);
-                    System.out.println(medlem.getFullName() + " betaler " + kasseren.medlemsKontingent(medlem)+ "DKK om året");
+                    System.out.println(medlem.getFullName() + " betaler " + KasserLogik.medlemsKontingent(medlem)+ "DKK om året");
                     break;
                 case 3:
                     System.out.println("Her er en oversigt over medlemmer med manglende betaling:");
                     System.out.println("Venligst indtast et medlemsID for at se en oversigt over medlemmers stamoplysninger, samt Restance:");
-                    int id1 = scanner.nextInt();
+                    int id1 = readInt();
                     Medlem medlem1 = dataBase.findMedlemById(id1);
                     System.out.println(medlem1.getFullName() + "s restance " + kasseren.medlemRestance()+ "kr.");
                     break;

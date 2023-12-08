@@ -22,7 +22,7 @@ class DataBaseTest {
         @Test
         public void testFindMedlemById() {
             DataBase database = new DataBase();
-            Medlem testMedlem = new Medlem("11-01-1980", "Danis Bomer", "mand", 90, "Bomer@yahoo.com", 21212121, "Baggesensgade31", "ja", true, 1000.0);
+            Medlem testMedlem = new Medlem("11-01-1980", "Danis Bomer", "mand", 90, "Bomer@yahoo.com", 21212121, "Baggesensgade31", "ja");
             database.getMedlemsListe().add(testMedlem);
             Medlem foundMedlem = database.findMedlemById(testMedlem.getIdNumber());
             assertNotNull(foundMedlem);
@@ -30,7 +30,7 @@ class DataBaseTest {
         }
         @Test
         public void testTilføjMedlemTilArray() {
-            Medlem medlem = new Medlem("11-01-1980", "Danis Bomer", "mand", 90, "Bomer@yahoo.com", 21212121, "Baggesensgade31", "ja", true, 1000.0);
+            Medlem medlem = new Medlem("11-01-1980", "Danis Bomer", "mand", 90, "Bomer@yahoo.com", 21212121, "Baggesensgade31", "ja");
             int førAntalMedlemmer = database.getMedlemmer().size();
             database.tilføjMedlemTilArray(medlem);
             int efterAntalMedlemmer = database.getMedlemmer().size();
@@ -38,9 +38,9 @@ class DataBaseTest {
         }
         @Test
         public void testOpdaterMedlemIDatabase() {
-            Medlem medlem = new Medlem("11-01-1980", "Danis Bomer", "mand", 90, "Bomer@yahoo.com", 21212121, "Baggesensgade31", "ja",  true, 1000);
+            Medlem medlem = new Medlem("11-01-1980", "Danis Bomer", "mand", 90, "Bomer@yahoo.com", 21212121, "Baggesensgade31", "ja");
             database.tilføjMedlemTilArray(medlem);
-            Medlem opdateretMedlem = new Medlem("11-01-1980", "Danis Bomer", "mand", 90, "Bomer@yahoo.com", 21212121, "Baggesensgade31", "ja",true , medlem.getIdNumber());
+            Medlem opdateretMedlem = new Medlem("11-01-1980", "Danis Bomer", "mand", 90, "Bomer@yahoo.com", 21212121, "Baggesensgade31", "ja");
             database.opdaterMedlemIDatabase(opdateretMedlem);
             Medlem fundetMedlem = database.findMedlemById(medlem.getIdNumber());
             assertEquals(opdateretMedlem, fundetMedlem);

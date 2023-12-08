@@ -32,16 +32,12 @@ public class KasserLogik {
                 }
             }
          totalPris += medlemsPris;
-            // totalpris += medlemspris
         }
-
         return totalPris;
-
-
     }
 
-    public int medlemsKontingent(Medlem medlem){
-
+    public static int medlemsKontingent(Medlem medlem){
+            int medlemsPris = 0;
             if (!medlem.getisAktiv()){
                 medlemsPris = 500;
             } else {
@@ -68,7 +64,7 @@ public class KasserLogik {
         double tilbageKontingen = 0.0;
         for (Medlem medlem : medlems) {
 
-            tilbageKontingen = medlemsKontingent(medlem) - medlem.getRestance();
+            tilbageKontingen = medlemsKontingent(medlem) - medlem.getBeløbBetalt();
 
         }
         return tilbageKontingen;

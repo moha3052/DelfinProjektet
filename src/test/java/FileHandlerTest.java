@@ -25,8 +25,8 @@ class FileHandlerTest {
     public void testGemResultaterICsv() {
         FileHandler fileHandler = new FileHandler();
         ArrayList<Resultater> resultaterList = new ArrayList<>();
-        resultaterList.add(new Resultater("Type1", "2023-01-01", "Discipline1", "Member1", 1, "10:30"));
-        resultaterList.add(new Resultater("Type2", "2023-02-02", "Discipline2", "Member2", 2, "11:45"));
+        resultaterList.add(new Resultater("Type1", "01-01-2023", "Discipline1", "Member1", 1, "10:30"));
+        resultaterList.add(new Resultater("Type2", "02-02-2023", "Discipline2", "Member2", 2, "11:45"));
         fileHandler.gemResultaterICsv(resultaterList);
         ArrayList<Resultater> loadedResultaterList = fileHandler.loadResultater();
         ArrayList<String> expectedStrings = new ArrayList<>();
