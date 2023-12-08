@@ -554,6 +554,7 @@ public class UserInterface {
                     System.out.println(medlem.getFullName() + " betaler " + KasserLogik.medlemsKontingent(medlem)+ "DKK om året");
                     break;
                 case 3:
+                    visMedlemmer();
                     System.out.println("Her er en oversigt over medlemmer med manglende betaling:");
                     System.out.println("Venligst indtast et medlemsID for at se en oversigt over medlemmers stamoplysninger, samt Restance:");
                     int id1 = readInt();
