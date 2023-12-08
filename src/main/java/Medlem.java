@@ -1,8 +1,4 @@
 public class Medlem {
-
-
-
-
     private String birthdate;
     private String fullName;
     private String gender;
@@ -17,25 +13,6 @@ public class Medlem {
 
     private int beløbBetalt;
 
-
-
-
-    public void setBeløbBetalt(int beløbBetalt) {
-        this.beløbBetalt = beløbBetalt;
-    }
-
-    public void setRestance(boolean restance){
-        this.restance = restance;
-    }
-
-    public boolean getRestance(){
-        return restance;
-    }
-
-
-    public int getBeløbBetalt() {
-        return beløbBetalt;
-    }
 
     // Denne konstruktør bliver brugt til at oprette et nyt medlem.
     public Medlem(String birthdate, String fullName, String gender, int idNumber, String email, int phoneNumber, String adress, String isCompetitionSwimmer) {
@@ -141,6 +118,23 @@ public class Medlem {
 
     public boolean getisAktiv(){
         return isAktiv;
+    }
+
+    public void setBeløbBetalt(int beløbBetalt) {
+        this.beløbBetalt = beløbBetalt;
+    }
+
+    public void setRestance(boolean restance){
+        this.restance = restance;
+    }
+
+    public boolean getRestance(){
+        return restance;
+    }
+
+
+    public int getBeløbBetalt() {
+        return beløbBetalt;
     }
 
     @Override
