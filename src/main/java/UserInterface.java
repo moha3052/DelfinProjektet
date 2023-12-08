@@ -558,7 +558,7 @@ public class UserInterface {
                     System.out.println("Venligst indtast et medlemsID for at se en oversigt over medlemmers stamoplysninger, samt Restance:");
                     int id1 = readInt();
                     Medlem medlem1 = dataBase.findMedlemById(id1);
-                    System.out.println(medlem1.getFullName() + "s restance " + kasseren.medlemRestance()+ "kr.");
+                    System.out.println(medlem1.getFullName() + " skylder " + kasseren.medlemRestance()+ "DKK.");
                     break;
                 case 4:
                     kassereRunning = false;
